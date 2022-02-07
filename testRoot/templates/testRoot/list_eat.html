@@ -1,0 +1,14 @@
+{% extends 'testRoot/base.html' %}
+
+{% block content %}
+<h1>これはlist_eat.htmlです</h1>
+{% for list in lists %}
+<div>
+    <p>{{list.name}},{{list.address}}</p>
+    <hr />
+    <iframe id="map" src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&amp;q={{ list.address }}'
+    width="100%" height="320" frameborder='0'>
+</iframe>
+</div>
+{% endfor %}
+{% endblock %}
