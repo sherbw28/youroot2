@@ -1,6 +1,12 @@
 /*styling.css*/
 /*add font family, background image*/
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
 #test {
     color: #5bc0de;
     font-family: "Poppins", sans-serif;
@@ -48,4 +54,26 @@
  
 #nabar {
   height: 100px;
+}
+
+#searchButton {
+  margin: 200px auto;
+}
+
+#searchArea {
+  text-align: center;
+}
+
+#searchMap {
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  width: 90%;
+  height: 90%;
+}
+
+#map {
+  width: 90%;
+  height: 90%;
+  margin: 100px auto;
 }

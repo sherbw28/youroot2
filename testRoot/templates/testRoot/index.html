@@ -1,5 +1,7 @@
 {% extends 'testRoot/base.html' %}
 
 {% block content %}
-<h1>これはindex.htmlです</h1>
+<div id="searchArea">
+    <a href="{% url 'test1' %}"><button type="button" class="btn btn-outline-primary" id="searchButton">ルートを検索　<i class="bi bi-search"></i></button></a>
+</div>
 {% endblock %}

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from testRoot.views import index, list_play, list_eat, test, list_all, test_direction, rootDisplay
+from testRoot.views import index, list_play, list_eat, test, list_all, test_direction, rootDisplay, test1, test2, test3, test4, test5
 from django.views.generic import RedirectView
 
 urlpatterns = [
@@ -13,4 +13,9 @@ urlpatterns = [
     path('testRoot/list_all', list_all, name='list_all'),
     path('testRoot/test_direction', test_direction, name='test_direction'),
     path('testRoot/rootDisplay', rootDisplay, name='rootDisplay'),
+    path('testRoot/test1', test1, name='test1'),
+    path('testRoot/test2', test2, name='test2'),
+    path('testRoot/test3', test3, name='test3'),
+    path('testRoot/test4', test4, name='test4'),
+    path('testRoot/test5', test5, name='test5'),
 ]
