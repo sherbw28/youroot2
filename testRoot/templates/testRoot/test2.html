@@ -19,10 +19,10 @@
 <p hidden><input type="text" id="lat" name="lat"><input type="text" id="lng" name="lng"></p>
 
 <div class="container">
-    <form method="POST" class="post-form">
+    <form method="POST" class="post-form" style="text-align: center;">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">投稿</button>
+        <button type="submit" class="btn btn-primary" style="margin-bottom: 30px;">登録!</button>
     </form>
 </div>
 

@@ -10,8 +10,8 @@ function init() {
 
     document.getElementById('lat').value = lat;
     document.getElementById('lng').value = lng;
-    document.getElementById('ido').value = lat;
-    document.getElementById('keido').value = lng;
+    document.getElementById('ido1').value = lat;
+    document.getElementById('keido1').value = lng;
 
 
     //初期マーカー
@@ -29,7 +29,7 @@ function nameSearch() {
     //初期化
 
     var where = document.getElementById("where").value;
-    document.getElementById('subsName').value = where;
+    document.getElementById('subsName1').value = where;
 
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode(
@@ -51,9 +51,9 @@ function nameSearch() {
 
                 document.getElementById('lat').value = ido1;
                 document.getElementById('lng').value = keido1;
-                document.getElementById('ido').value = ido1;
-                document.getElementById('keido').value = keido1;
-                document.getElementById('address').value = address.substring(13);
+                document.getElementById('ido1').value = ido1;
+                document.getElementById('keido1').value = keido1;
+                document.getElementById('address1').value = address.substring(13);
 
                 //初期マーカー
                 marker = new google.maps.Marker({
@@ -84,8 +84,8 @@ function clickMap(geo, map) {
 
     document.getElementById('lat').value = lat;
     document.getElementById('lng').value = lng;
-    document.getElementById('ido').value = lat;
-    document.getElementById('keido').value = lng;
+    document.getElementById('ido1').value = lat;
+    document.getElementById('keido1').value = lng;
 
     //中心にスクロール
     map.panTo(geo);

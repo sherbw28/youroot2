@@ -2,23 +2,30 @@
 
 {% block content %}
 <h1>これはlist_all.playです</h1>
-{% for list in lists %}
-    {% for date in list %}
-        <div class="container" style="background-color: #EEEEEE;">
-            <div class="row">
-                <div class="col">
-                    <h1 style="text-align: center;">{{date.name}}</h1>
-                    <hr />
-                    <p style="text-align: center; line-height: 20;">{{date.address}}</p>
-                </div>
-                <div class="col">
-                    <iframe id="map" src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&amp;q={{ date.address }}'
-                    width="100%" height="400" frameborder='0' style="text-align: center;">
-                    </iframe>
-                </div>
-            </div>
+<input type="hidden" value="{{lists_test}}" id="aaaaa">
+<button onclick="getInfo()" style="margin-top: 130px;">確認</button>
+{% for list in lists_test %}
+<div class="container" style="background-color: #EEEEEE; margin-top: 130px;">
+    <div class="row">
+        <div class="col">
+            <h1 style="text-align: center;">{{list.name}}</h1>
+            <hr />
+            <p style="text-align: center; line-height: 20;">{{list.address}}</p>
         </div>
-        <hr />
-    {% endfor %}
+        <div class="col">
+            <iframe
+                src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&amp;q={{ list.address }}'
+                width="90%" height="400" frameborder='0' style="text-align: center;">
+            </iframe>
+        </div>
+    </div>
+</div>
+<hr />
 {% endfor %}
+<script type="text/javascript">
+    function getInfo() {
+        var a = document.getElementById("aaaaa");
+        console.log(a)
+    }
+</script>
 {% endblock %}
