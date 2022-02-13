@@ -2,6 +2,9 @@ from django.contrib import admin
 from django.urls import path
 from testRoot.views import index, list_play, list_eat, test, list_all, test_direction, rootDisplay, test1, test2, test3, test4, test5
 from django.views.generic import RedirectView
+from . import settings
+from django.contrib.staticfiles.urls import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
@@ -19,3 +22,6 @@ urlpatterns = [
     path('testRoot/test4', test4, name='test4'),
     path('testRoot/test5', test5, name='test5'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

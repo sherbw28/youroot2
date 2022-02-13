@@ -13,6 +13,19 @@ class PrefeCode(models.Model):
     def __str__(self):
         return self.name
     
+class City(models.Model):
+    pref = models.ForeignKey(PrefeCode, on_delete=models.PROTECT)
+    city_name = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.city_name
+    
+class Atmosphere(models.Model):
+    type = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.type
+    
 class TypeOfPlace(models.Model):
     TYPE_CHOICE = (
         ('eat','ご飯'),
@@ -20,12 +33,15 @@ class TypeOfPlace(models.Model):
     )
     type = models.CharField(max_length=255, choices=TYPE_CHOICE)
     name = models.CharField(max_length=255)
+    atmosphere = models.ForeignKey(Atmosphere, on_delete=models.PROTECT, null=True)
     address = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     pref = models.ForeignKey(PrefeCode, on_delete=models.PROTECT, null=True)
+    city = models.ForeignKey(City, on_delete=models.PROTECT, null=True)
     ido = models.FloatField(null=True)
     keido = models.FloatField(null=True)
+    image = models.ImageField(upload_to='images/', null=True)
     
     def __str__(self):
         return self.name
@@ -39,6 +55,7 @@ class Play(models.Model):
     pref = models.ForeignKey(PrefeCode, on_delete=models.PROTECT, null=True)
     ido = models.FloatField(null=True)
     keido = models.FloatField(null=True)
+    image = models.ImageField(upload_to='images/', null=True)
     
     def __str__(self):
         return self.name
@@ -55,3 +72,4 @@ class Eat(models.Model):
     
     def __str__(self):
         return self.name
+    

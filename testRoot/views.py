@@ -1,7 +1,9 @@
+from unicodedata import name
 from django.shortcuts import render, redirect
-from .models import Play, Eat, TypeOfPlace
+from .models import Play, Eat, TypeOfPlace, PrefeCode,Atmosphere
 from .forms import PlayForm, EatForm, TypeOfPlaceForm
 import random
+from django.contrib import messages
 
 def index(request):
     return render(request, 'testRoot/index.html')
@@ -59,19 +61,35 @@ def test_direction(request):
     return render(request, 'testRoot/test_direction.html')
 
 
-def test1(request):
-    lists_test_play = TypeOfPlace.objects.filter(type="play")
-    lists_test_eat = TypeOfPlace.objects.filter(type="eat")
-    
+def test1(request): 
+    if request.method == 'POST':
+        # area = request.POST.get("area")
+        prefs = request.POST.getlist("pref")
+        atmos = request.POST.get('atm')
+        if len(prefs) == 0:
+            return render(request, 'testRoot/index.html')
+        if atmos == 'all':
+            lists_test_play = TypeOfPlace.objects.filter(type="play").filter(pref__name__in=prefs)
+            lists_test_eat = TypeOfPlace.objects.filter(type="eat").filter(pref__name__in=prefs)
+        else:
+            lists_test_play = TypeOfPlace.objects.filter(type="play").filter(pref__name__in=prefs).filter(atmosphere__type=atmos)
+            lists_test_eat = TypeOfPlace.objects.filter(type="eat").filter(pref__name__in=prefs).filter(atmosphere__type=atmos)
+            
+        if (len(lists_test_play) < 2) or (len(lists_test_eat) < 1):
+            return render(request, 'testRoot/index.html')
+        
+    else:
+        lists_test_play = TypeOfPlace.objects.filter(type="play")
+        lists_test_eat = TypeOfPlace.objects.filter(type="eat")
+        
     a = random.randint(0,len(lists_test_play) - 1)
     b = random.randint(0,len(lists_test_eat) - 1)
     c = random.randint(0,len(lists_test_play) - 1)
-        
+            
     while a == c:
         c = random.randint(0,len(lists_test_play))
-        
+            
     for i, list in enumerate(lists_test_play):
-        print(i)
         if i == a:
             list_test_1 = list
             ido1 = list.ido
@@ -86,9 +104,9 @@ def test1(request):
             list_test_2 = list
             ido2 = list.ido
             keido2 = list.keido
-            
+                
     lists = [list_test_1, list_test_2, list_test_3] 
-    
+        
     content = {
         'ido1':ido1,
         'keido1':keido1,
