@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<h1 style="margin-top: 130px;">これはdetail.htmlです</h1>
+
+<div class="container" style="background-color: #EEEEEE; margin-top: 130px;">
+    <div class="row">
+        <div class="col">
+            <h1 style="text-align: center;">{{content.name1}}</h1>
+            <hr />
+            <p style="text-align: center; line-height: 20;">{{content.address1}}</p>
+        </div>
+        <div class="col">
+            <iframe
+                src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&amp;q={{ content.address1 }}'
+                width="100%" height="400" frameborder='0' style="text-align: center;">
+            </iframe>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="container" style="background-color: #EEEEEE; margin-top: 130px;">
+    <div class="row">
+        <div class="col">
+            <h1 style="text-align: center;">{{content.name2}}</h1>
+            <hr />
+            <p style="text-align: center; line-height: 20;">{{content.address2}}</p>
+        </div>
+        <div class="col">
+            <iframe
+                src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&amp;q={{ content.address2 }}'
+                width="100%" height="400" frameborder='0' style="text-align: center;">
+            </iframe>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="container" style="background-color: #EEEEEE; margin-top: 130px;">
+    <div class="row">
+        <div class="col">
+            <h1 style="text-align: center;">{{content.name3}}</h1>
+            <hr />
+            <p style="text-align: center; line-height: 20;">{{content.address3}}</p>
+        </div>
+        <div class="col">
+            <iframe
+                src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&amp;q={{ content.address3 }}'
+                width="100%" height="400" frameborder='0' style="text-align: center;">
+            </iframe>
+        </div>
+    </div>
+</div>
+<hr />
+
+
+<div id="map" style="margin-top: 100px;"></div>
+
+<input type="hidden" id="ido1" name="chart_labels" value="{{ content.ido1 }}">
+<input type="hidden" id="keido1" name="chart_labels" value="{{ content.keido1 }}">
+<input type="hidden" id="ido2" name="chart_labels" value="{{ content.ido2 }}">
+<input type="hidden" id="keido2" name="chart_labels" value="{{ content.keido2 }}">
+<input type="hidden" id="ido3" name="chart_labels" value="{{ content.ido3 }}">
+<input type="hidden" id="keido3" name="chart_labels" value="{{ content.keido3 }}">
+
+
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&libraries=places&callback=initMap"
+    async defer></script>
+<script src="{% static 'js/rootDisplay.js' %}"></script>
+{% endblock %}

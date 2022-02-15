@@ -1,5 +1,5 @@
 from unicodedata import name
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Play, Eat, TypeOfPlace, PrefeCode, Atmosphere, SaveRoot
 from .forms import PlayForm, EatForm, TypeOfPlaceForm, SaveRootForm
 import random
@@ -101,12 +101,16 @@ def test1(request):
             list_test_3 = list
             ido3 = list.ido
             keido3 = list.keido
+            name3 = list.name
+            address3 = list.address
             
     for i, list in enumerate(lists_test_eat):
         if i == b:
             list_test_2 = list
             ido2 = list.ido
             keido2 = list.keido
+            name2 = list.name
+            address2 = list.address
                 
     lists = [list_test_1, list_test_2, list_test_3]
     rootForm = SaveRootForm()
@@ -119,6 +123,12 @@ def test1(request):
         'ido3':ido3,
         'keido3':keido3,
         'lists': lists,
+        'name1': name1,
+        'address1': address1,
+        'name2': name2,
+        'address2': address2,
+        'name3': name3,
+        'address3': address3,
         'rootForm': rootForm,
     }
     return render(request, 'testRoot/test1.html', content)
@@ -179,7 +189,29 @@ def rootDisplay(request):
     return render(request, 'testRoot/rootDisplay.html', content)
 
 def user(request, id):
-    return render(request, 'testRoot/user.html')
+    if request.method == 'POST':
+        form = SaveRootForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('index')
+    else:
+        lists = SaveRoot.objects.filter(author=request.user)
+        content = {
+            'lists': lists,
+        }
+        return render(request, 'testRoot/user.html', content)
 
 def save(request, id):
-    return redirect('user')
+    if request.method == 'POST':
+        form = SaveRoot(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('user')
+    else:
+        return redirect('index')
+    
+def detail(request, id):
+    content = get_object_or_404(SaveRoot, pk=id)
+    return render(request, 'testRoot/detail.html', {"content": content})

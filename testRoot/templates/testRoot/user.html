@@ -4,4 +4,12 @@
 <h1 style="margin-top: 130px;">これはユーザー詳細ページです</h1>
 <p>{{user.id}}</p>
 <p>{{user}}</p>
+
+<div class="container">
+    <h2>保存したルート</h2>
+    {% for list in lists %}
+    <a href="{% url 'detail' list.pk%}"><p>{{list.rootName}}</p></a>
+    <p>{{list.author}}</p>
+    {% endfor %}
+</div>
 {% endblock %}
