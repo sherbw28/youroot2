@@ -1,4 +1,5 @@
 from dataclasses import fields
+from operator import attrgetter
 from django import forms
 from .models import Play, Eat, TypeOfPlace, City, PrefeCode, SaveRoot, KeepRoot
 
@@ -46,6 +47,7 @@ class TypeOfPlaceForm(forms.ModelForm):
             'ido': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'緯度', 'id': 'ido1', 'type':'hidden'}),
             'keido': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'経度', 'id': 'keido1', 'type':'hidden'}),
             'author': forms.TextInput(attrs={'type': 'hidden'}),
+            'good': forms.TextInput(attrs={'type':'hidden'}),
         }
 
 class SaveRootForm(forms.ModelForm):

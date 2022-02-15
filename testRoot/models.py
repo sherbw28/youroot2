@@ -44,6 +44,7 @@ class TypeOfPlace(models.Model):
     keido = models.FloatField(null=True)
     # image = models.ImageField(upload_to='images/', null=True)
     author = models.ForeignKey(get_user_model(),on_delete=models.CASCADE, null=True)
+    good = models.IntegerField(null=True, default=0)
     
     def __str__(self):
         return self.name

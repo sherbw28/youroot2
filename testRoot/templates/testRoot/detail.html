@@ -9,6 +9,10 @@
             <h1 style="text-align: center;">{{content.first.name}}</h1>
             <hr />
             <p style="text-align: center; line-height: 20;">{{content.first.address}}</p>
+            <form action="{% url 'like' content.first.id%}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-danger">like<i class="bi bi-heart"></i></button>
+            </form>
         </div>
         <div class="col">
             <iframe
@@ -25,6 +29,10 @@
             <h1 style="text-align: center;">{{content.second.name}}</h1>
             <hr />
             <p style="text-align: center; line-height: 20;">{{content.second.address}}</p>
+            <form action="{% url 'like' content.second.id%}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-danger">like<i class="bi bi-heart"></i></button>
+            </form>
         </div>
         <div class="col">
             <iframe
@@ -41,6 +49,10 @@
             <h1 style="text-align: center;">{{content.third.name}}</h1>
             <hr />
             <p style="text-align: center; line-height: 20;">{{content.third.address}}</p>
+            <form action="{% url 'like' content.third.id%}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-danger">like<i class="bi bi-heart"></i></button>
+            </form>
         </div>
         <div class="col">
             <iframe

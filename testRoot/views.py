@@ -227,3 +227,13 @@ def save(request, id):
 def detail(request, id):
     content = get_object_or_404(KeepRoot, pk=id)
     return render(request, 'testRoot/detail.html', {"content": content})
+
+def like(request, id):
+    if request.method == 'POST':
+        place = get_object_or_404(TypeOfPlace, pk=id)
+        place.good += 1
+        place.save()
+        print(place.good)
+        return redirect(request.META['HTTP_REFERER'])
+    else:
+        return redirect('index')

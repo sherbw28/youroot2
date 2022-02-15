@@ -19,12 +19,13 @@
     <h2>登録した場所</h2>
     <table class="table table-striped table-hover">
         <tr>
-            <th>追加日</th><th>名前</th>
+            <th>追加日</th><th>名前</th><th>いいね</th>
         </tr>
         {% for list in lists_place %}
             <tr>
-                <td>{{list.created_at}}</td>
+                <td><p>{{list.created_at}}</p></td>
                 <td><p>{{list.name}}</p></td>
+                <td><p>{{list.good}}</p></td>
             </tr>
         {% endfor %}
     </table>

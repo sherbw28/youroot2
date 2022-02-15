@@ -1,7 +1,7 @@
 from unicodedata import name
 from django.contrib import admin
 from django.urls import path, include
-from testRoot.views import index, list_play, list_eat, test, list_all, test_direction, rootDisplay, test1, test2, test3, test4, test5, user, save, detail
+from testRoot.views import index, list_play, list_eat, test, list_all, test_direction, rootDisplay, test1, test2, test3, test4, test5, user, save, detail, like
 from django.views.generic import RedirectView
 from . import settings
 from django.contrib.staticfiles.urls import static
@@ -26,7 +26,8 @@ urlpatterns = [
     path('testRoot/test5', test5, name='test5'),
     path('user/<int:id>', user, name='user'),
     path('testRoot/save', save, name='save'),
-    path('testROot/<int:id>/detail', detail, name='detail'),
+    path('testRoot/<int:id>/detail', detail, name='detail'),
+    path('testRoot/<int:id>/like', like, name='like')
 ]
 
 urlpatterns += staticfiles_urlpatterns()
