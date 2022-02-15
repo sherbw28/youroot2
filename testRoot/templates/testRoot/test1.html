@@ -24,7 +24,7 @@
 <div class="container">
     <form action="{% url 'user' user.id%}" method="post">
         {% csrf_token %}
-        {{rootForm.as_p}}
+        {{keepForm.as_p}}
         <button class="btn btn-outline-primary">ルートを保存</button>
     </form>
 </div>

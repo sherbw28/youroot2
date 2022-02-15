@@ -1,3 +1,4 @@
+from urllib import request
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.conf import settings
@@ -5,6 +6,7 @@ from django.utils import timezone
 from cgitb import text
 from tkinter import CASCADE
 from turtle import title
+from django.contrib.auth import get_user_model
 
 class PrefeCode(models.Model):
     name = models.CharField(max_length=255)
@@ -38,10 +40,10 @@ class TypeOfPlace(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     pref = models.ForeignKey(PrefeCode, on_delete=models.PROTECT, null=True)
-    city = models.ForeignKey(City, on_delete=models.PROTECT, null=True)
     ido = models.FloatField(null=True)
     keido = models.FloatField(null=True)
-    image = models.ImageField(upload_to='images/', null=True)
+    # image = models.ImageField(upload_to='images/', null=True)
+    author = models.ForeignKey(get_user_model(),on_delete=models.CASCADE, null=True)
     
     def __str__(self):
         return self.name
@@ -61,6 +63,7 @@ class SaveRoot(models.Model):
     ido3 = models.FloatField(null=True)
     keido3 = models.FloatField(null=True)
     author = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
     
     def __str__(self):
         return self.rootName
@@ -92,3 +95,13 @@ class Eat(models.Model):
     def __str__(self):
         return self.name
     
+class KeepRoot(models.Model):
+    name = models.CharField(max_length=255)
+    first = models.ForeignKey(TypeOfPlace, on_delete=models.CASCADE, null=True,related_name='first')
+    second = models.ForeignKey(TypeOfPlace, on_delete=models.CASCADE, null=True,related_name='second')
+    third = models.ForeignKey(TypeOfPlace, on_delete=models.CASCADE, null=True,related_name='third')
+    author = models.ForeignKey(get_user_model(),on_delete=models.CASCADE, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    
+    def __str__(self):
+        return self.name

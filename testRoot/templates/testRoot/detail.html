@@ -1,18 +1,18 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block content %}
-<h1 style="margin-top: 130px;">これはdetail.htmlです</h1>
+<h1 style="margin: 130px;">{{content.name}}</h1>
 
 <div class="container" style="background-color: #EEEEEE; margin-top: 130px;">
     <div class="row">
         <div class="col">
-            <h1 style="text-align: center;">{{content.name1}}</h1>
+            <h1 style="text-align: center;">{{content.first.name}}</h1>
             <hr />
-            <p style="text-align: center; line-height: 20;">{{content.address1}}</p>
+            <p style="text-align: center; line-height: 20;">{{content.first.address}}</p>
         </div>
         <div class="col">
             <iframe
-                src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&amp;q={{ content.address1 }}'
+                src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&amp;q={{ content.first.address }}'
                 width="100%" height="400" frameborder='0' style="text-align: center;">
             </iframe>
         </div>
@@ -22,13 +22,13 @@
 <div class="container" style="background-color: #EEEEEE; margin-top: 130px;">
     <div class="row">
         <div class="col">
-            <h1 style="text-align: center;">{{content.name2}}</h1>
+            <h1 style="text-align: center;">{{content.second.name}}</h1>
             <hr />
-            <p style="text-align: center; line-height: 20;">{{content.address2}}</p>
+            <p style="text-align: center; line-height: 20;">{{content.second.address}}</p>
         </div>
         <div class="col">
             <iframe
-                src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&amp;q={{ content.address2 }}'
+                src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&amp;q={{ content.second.address }}'
                 width="100%" height="400" frameborder='0' style="text-align: center;">
             </iframe>
         </div>
@@ -38,13 +38,13 @@
 <div class="container" style="background-color: #EEEEEE; margin-top: 130px;">
     <div class="row">
         <div class="col">
-            <h1 style="text-align: center;">{{content.name3}}</h1>
+            <h1 style="text-align: center;">{{content.third.name}}</h1>
             <hr />
-            <p style="text-align: center; line-height: 20;">{{content.address3}}</p>
+            <p style="text-align: center; line-height: 20;">{{content.third.address}}</p>
         </div>
         <div class="col">
             <iframe
-                src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&amp;q={{ content.address3 }}'
+                src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&amp;q={{ content.third.address }}'
                 width="100%" height="400" frameborder='0' style="text-align: center;">
             </iframe>
         </div>
@@ -55,12 +55,12 @@
 
 <div id="map" style="margin-top: 100px;"></div>
 
-<input type="hidden" id="ido1" name="chart_labels" value="{{ content.ido1 }}">
-<input type="hidden" id="keido1" name="chart_labels" value="{{ content.keido1 }}">
-<input type="hidden" id="ido2" name="chart_labels" value="{{ content.ido2 }}">
-<input type="hidden" id="keido2" name="chart_labels" value="{{ content.keido2 }}">
-<input type="hidden" id="ido3" name="chart_labels" value="{{ content.ido3 }}">
-<input type="hidden" id="keido3" name="chart_labels" value="{{ content.keido3 }}">
+<input type="hidden" id="ido1" name="chart_labels" value="{{ content.first.ido }}">
+<input type="hidden" id="keido1" name="chart_labels" value="{{ content.first.keido }}">
+<input type="hidden" id="ido2" name="chart_labels" value="{{ content.second.ido }}">
+<input type="hidden" id="keido2" name="chart_labels" value="{{ content.second.keido }}">
+<input type="hidden" id="ido3" name="chart_labels" value="{{ content.third.ido }}">
+<input type="hidden" id="keido3" name="chart_labels" value="{{ content.third.keido }}">
 
 
 <script

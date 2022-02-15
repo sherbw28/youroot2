@@ -1,7 +1,7 @@
 from unicodedata import name
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Play, Eat, TypeOfPlace, PrefeCode, Atmosphere, SaveRoot
-from .forms import PlayForm, EatForm, TypeOfPlaceForm, SaveRootForm
+from .models import Play, Eat, TypeOfPlace, PrefeCode, Atmosphere, SaveRoot, KeepRoot
+from .forms import PlayForm, EatForm, TypeOfPlaceForm, SaveRootForm, KeepRootForm
 import random
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -113,7 +113,13 @@ def test1(request):
             address2 = list.address
                 
     lists = [list_test_1, list_test_2, list_test_3]
-    rootForm = SaveRootForm()
+    initial_dict = {
+        'author': request.user,
+        'first': list_test_1,
+        'second': list_test_2,
+        'third': list_test_3,
+    }
+    keepForm = KeepRootForm(initial=initial_dict)
         
     content = {
         'ido1':ido1,
@@ -129,7 +135,7 @@ def test1(request):
         'address2': address2,
         'name3': name3,
         'address3': address3,
-        'rootForm': rootForm,
+        'keepForm': keepForm,
     }
     return render(request, 'testRoot/test1.html', content)
 
@@ -139,9 +145,13 @@ def test2(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
+            print("成功")
             return redirect('index')
     else:
-        form = TypeOfPlaceForm()
+        initial_dict = {
+            'author': request.user,
+        }
+        form = TypeOfPlaceForm(initial=initial_dict)
     return render(request, 'testRoot/test2.html', {'form': form})
 
 def test3(request):
@@ -190,15 +200,17 @@ def rootDisplay(request):
 
 def user(request, id):
     if request.method == 'POST':
-        form = SaveRootForm(request.POST)
+        form = KeepRootForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
             return redirect('index')
     else:
-        lists = SaveRoot.objects.filter(author=request.user)
+        lists = KeepRoot.objects.filter(author=request.user)
+        lists_place = TypeOfPlace.objects.filter(author=request.user)
         content = {
             'lists': lists,
+            'lists_place': lists_place
         }
         return render(request, 'testRoot/user.html', content)
 
@@ -213,5 +225,5 @@ def save(request, id):
         return redirect('index')
     
 def detail(request, id):
-    content = get_object_or_404(SaveRoot, pk=id)
+    content = get_object_or_404(KeepRoot, pk=id)
     return render(request, 'testRoot/detail.html', {"content": content})

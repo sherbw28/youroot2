@@ -1,6 +1,6 @@
 from dataclasses import fields
 from django import forms
-from .models import Play, Eat, TypeOfPlace, City, PrefeCode, SaveRoot
+from .models import Play, Eat, TypeOfPlace, City, PrefeCode, SaveRoot, KeepRoot
 
 class PlayForm(forms.ModelForm):
     class Meta:
@@ -37,7 +37,7 @@ class TypeOfPlaceForm(forms.ModelForm):
            'address':'住所',
            'pref':'所在地',
            'city':'市町村',
-           'image':"画像"
+           'image':"画像",
            }
         
         widgets = {
@@ -45,6 +45,7 @@ class TypeOfPlaceForm(forms.ModelForm):
             'address': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'address', 'id':'address1', 'type':'hidden'}),
             'ido': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'緯度', 'id': 'ido1', 'type':'hidden'}),
             'keido': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'経度', 'id': 'keido1', 'type':'hidden'}),
+            'author': forms.TextInput(attrs={'type': 'hidden'}),
         }
 
 class SaveRootForm(forms.ModelForm):
@@ -66,4 +67,16 @@ class SaveRootForm(forms.ModelForm):
             'ido3': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'緯度', 'id': 'ido33', 'type': 'hidden'}),
             'keido3': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'経度', 'id': 'keido33', 'type': 'hidden'}),
             'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'userName', 'id': 'author1', 'type': 'hidden'}),
+        }
+        
+class KeepRootForm(forms.ModelForm):
+    class Meta:
+        model = KeepRoot
+        fields = '__all__'
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'name'}),
+            'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'userName', 'id': 'author1', 'type': 'hidden'}),
+            'first': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'first', 'id': 'first', 'type': 'hidden'}),
+            'second': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'second', 'id': 'second', 'type': 'hidden'}),
+            'third': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'third', 'id': 'third', 'type': 'hidden'}),
         }

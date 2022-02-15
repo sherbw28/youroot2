@@ -13,7 +13,6 @@ function init() {
     document.getElementById('ido1').value = lat;
     document.getElementById('keido1').value = lng;
 
-
     //初期マーカー
     marker = new google.maps.Marker({
         map: map, position: new google.maps.LatLng(lat, lng),
