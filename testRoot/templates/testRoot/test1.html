@@ -1,4 +1,4 @@
-{% extends 'testRoot/base.html' %}
+{% extends 'layout.html' %}
 {% load static %}
 {% block content %}
 {% for list in lists %}
@@ -20,6 +20,15 @@
 <hr />
 {% endfor %}
 <div id="map" style="margin-top: 200px;"></div>
+
+<div class="container">
+    <form action="{% url 'user' user.id%}" method="post">
+        {% csrf_token %}
+        {{rootForm.as_p}}
+        <button class="btn btn-outline-primary">ルートを保存</button>
+    </form>
+</div>
+
 <input type="hidden" id="ido1" name="chart_labels" value="{{ ido1 }}">
 <input type="hidden" id="keido1" name="chart_labels" value="{{ keido1 }}">
 <input type="hidden" id="ido2" name="chart_labels" value="{{ ido2 }}">
@@ -31,4 +40,5 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&libraries=places&callback=initMap"
     async defer></script>
 <script src="{% static 'js/rootDisplay.js' %}"></script>
+<script src="{% static 'js/saveRoot.js' %}"></script>
 {% endblock %}

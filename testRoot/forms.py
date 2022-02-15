@@ -1,6 +1,6 @@
 from dataclasses import fields
 from django import forms
-from .models import Play, Eat, TypeOfPlace, City, PrefeCode
+from .models import Play, Eat, TypeOfPlace, City, PrefeCode, SaveRoot
 
 class PlayForm(forms.ModelForm):
     class Meta:
@@ -46,4 +46,23 @@ class TypeOfPlaceForm(forms.ModelForm):
             'ido': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'緯度', 'id': 'ido1', 'type':'hidden'}),
             'keido': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'経度', 'id': 'keido1', 'type':'hidden'}),
         }
-        
+
+class SaveRootForm(forms.ModelForm):
+    class Meta:
+        model = SaveRoot
+        fields = '__all__'
+        widgets = {
+            'rootName': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'name'}),
+            'name1': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'name', 'id': 'subsName11'}),
+            'address1': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'address', 'id':'address11'}),
+            'ido1': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'緯度', 'id': 'ido11'}),
+            'keido1': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'経度', 'id': 'keido11'}),
+            'name2': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'name', 'id': 'subsName22'}),
+            'address2': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'address', 'id':'address22'}),
+            'ido2': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'緯度', 'id': 'ido22'}),
+            'keido2': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'経度', 'id': 'keido22'}),
+            'name3': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'name', 'id': 'subsName33'}),
+            'address3': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'address', 'id':'address33'}),
+            'ido3': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'緯度', 'id': 'ido33'}),
+            'keido3': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'経度', 'id': 'keido33'}),
+        }

@@ -1,7 +1,7 @@
 from unicodedata import name
 from django.shortcuts import render, redirect
-from .models import Play, Eat, TypeOfPlace, PrefeCode,Atmosphere
-from .forms import PlayForm, EatForm, TypeOfPlaceForm
+from .models import Play, Eat, TypeOfPlace, PrefeCode, Atmosphere, SaveRoot
+from .forms import PlayForm, EatForm, TypeOfPlaceForm, SaveRootForm
 import random
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -95,6 +95,8 @@ def test1(request):
             list_test_1 = list
             ido1 = list.ido
             keido1 = list.keido
+            name1 = list.name
+            address1 = list.address
         if i == c:
             list_test_3 = list
             ido3 = list.ido
@@ -106,7 +108,8 @@ def test1(request):
             ido2 = list.ido
             keido2 = list.keido
                 
-    lists = [list_test_1, list_test_2, list_test_3] 
+    lists = [list_test_1, list_test_2, list_test_3]
+    rootForm = SaveRootForm()
         
     content = {
         'ido1':ido1,
@@ -115,7 +118,8 @@ def test1(request):
         'keido2':keido2,
         'ido3':ido3,
         'keido3':keido3,
-        'lists': lists
+        'lists': lists,
+        'rootForm': rootForm,
     }
     return render(request, 'testRoot/test1.html', content)
 
@@ -173,3 +177,9 @@ def rootDisplay(request):
     }
     
     return render(request, 'testRoot/rootDisplay.html', content)
+
+def user(request, id):
+    return render(request, 'testRoot/user.html')
+
+def save(request, id):
+    return redirect('user')

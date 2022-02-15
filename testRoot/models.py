@@ -45,6 +45,22 @@ class TypeOfPlace(models.Model):
     
     def __str__(self):
         return self.name
+    
+class SaveRoot(models.Model):
+    rootName = models.CharField(max_length=255)
+    name1 = models.CharField(max_length=255)
+    address1 = models.CharField(max_length=255)
+    ido1 = models.FloatField(null=True)
+    keido1 = models.FloatField(null=True)
+    name2 = models.CharField(max_length=255)
+    address2 = models.CharField(max_length=255)
+    ido2 = models.FloatField(null=True)
+    keido2 = models.FloatField(null=True)
+    name3 = models.CharField(max_length=255)
+    address3 = models.CharField(max_length=255)
+    ido3 = models.FloatField(null=True)
+    keido3 = models.FloatField(null=True)
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 
 
 class Play(models.Model):
