@@ -4,6 +4,7 @@ from .models import Play, Eat, TypeOfPlace, PrefeCode,Atmosphere
 from .forms import PlayForm, EatForm, TypeOfPlaceForm
 import random
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def index(request):
     return render(request, 'testRoot/index.html')
