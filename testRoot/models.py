@@ -42,9 +42,10 @@ class TypeOfPlace(models.Model):
     pref = models.ForeignKey(PrefeCode, on_delete=models.PROTECT, null=True)
     ido = models.FloatField(null=True)
     keido = models.FloatField(null=True)
-    # image = models.ImageField(upload_to='images/', null=True)
+    image = models.ImageField(upload_to='images/', null=True)
     author = models.ForeignKey(get_user_model(),on_delete=models.CASCADE, null=True)
     good = models.IntegerField(null=True, default=0)
+    comment = models.CharField(max_length=500, null=True)
     
     def __str__(self):
         return self.name

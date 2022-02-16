@@ -39,6 +39,7 @@ class TypeOfPlaceForm(forms.ModelForm):
            'pref':'所在地',
            'city':'市町村',
            'image':"画像",
+           'comment': 'コメント',
            }
         
         widgets = {
@@ -48,6 +49,7 @@ class TypeOfPlaceForm(forms.ModelForm):
             'keido': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'経度', 'id': 'keido1', 'type':'hidden'}),
             'author': forms.TextInput(attrs={'type': 'hidden'}),
             'good': forms.TextInput(attrs={'type':'hidden'}),
+            'comment': forms.Textarea(attrs={'class': 'form-control', 'placeholder': '一言コメント!'}),
         }
 
 class SaveRootForm(forms.ModelForm):
