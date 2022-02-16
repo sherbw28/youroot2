@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<div class="mainn1">
+
+    <p class="mainn">
+        <span class="cls">あそびこんしぇるじゅ</span><br>遊びを無限大に
+    </p>
+
+    {% if user.is_authenticated %}
+    <div class="button05">
+        <a href="{% url 'index' %}">
+            <p>今すぐ始める</p>
+        </a>
+    </div>
+    {% else %}
+    <div class="button05">
+        <a href="{% url 'login' %}">
+            <p>今すぐ始める</p>
+        </a>
+    </div>
+    {% endif %}
+
+</div>
+
+<div class="container">
+    <p class="topicone">自動でルートを検索</p>
+    <p class="mozi">行きたい雰囲気、場所を設定。<br>自動でランダムにルートを検索してくれます。</p>
+    <div class="one">
+        <i class="fal fa-search"></i>
+    </div>
+</div>
+
+
+<div class="container">
+    <p class="topictwo">お気に入りを見つけよう</p>
+    <p class="mozi">いいと思った場所にいいねが押せます。<br>あなたのオススメの場所を他の人にも紹介してあげてね。</p>
+    <div class="two">
+        <i class="fal fa-heart"></i>
+    </div>
+</div>
+
+<footer class="footer py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div>Copyright &copy; 刺身は粋 2022</div>
+        </div>
+    </div>
+</footer>
+{% endblock %}

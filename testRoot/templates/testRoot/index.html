@@ -25,7 +25,7 @@
                 </div>
             </fieldset>
         </div>
-        <div class="checkArea">
+        <!-- <div class="checkArea">
             <fieldset class="row mb-3">
                 <legend class="col-form-label col-sm-2 pt-0">雰囲気</legend>
                 <div class="col-sm-10">
@@ -61,6 +61,58 @@
                     </div>
                 </div>
             </fieldset>
+        </div> -->
+        <div class="main-container">
+            <h2>どういった雰囲気がいい?</h2>
+            <div class="radio-buttons">
+                <label class="custom-radio">
+                    <input type="radio" name="atm" value="all" checked />
+                    <span class="radio-btn"><i class="las la-check"></i>
+                        <div class="hobbies-icon">
+                            <!-- <i class="las la-biking"></i> -->
+                            <i class="las la-circle"></i>
+                            <h3>どれでもOK!</h3>
+                        </div>
+                    </span>
+                </label>
+                <label class="custom-radio">
+                    <input type="radio" name="atm" value="みんなでワイワイ" />
+                    <span class="radio-btn"><i class="las la-check"></i>
+                        <div class="hobbies-icon">
+                            <i class="las la-futbol"></i>
+                            <h3>みんなでワイワイ</h3>
+                        </div>
+                    </span>
+                </label>
+                <label class="custom-radio">
+                    <input type="radio" name="atm" value="落ち着いた" />
+                    <span class="radio-btn"><i class="las la-check"></i>
+                        <div class="hobbies-icon">
+                            <!-- <i class="las la-table-tennis"></i> -->
+                            <i class="las las-light la-mug-hot"></i>
+                            <h3>落ち着いた</h3>
+                        </div>
+                    </span>
+                </label>
+                <label class="custom-radio">
+                    <input type="radio" name="atm" value="賑やか" />
+                    <span class="radio-btn"><i class="las la-check"></i>
+                        <div class="hobbies-icon">
+                            <i class="las la-table-tennis"></i>
+                            <h3>賑やか</h3>
+                        </div>
+                    </span>
+                </label>
+                <label class="custom-radio">
+                    <input type="radio" name="atm" value="一人で" />
+                    <span class="radio-btn"><i class="las la-check"></i>
+                        <div class="hobbies-icon">
+                            <i class="las la-biking"></i>
+                            <h3>一人で</h3>
+                        </div>
+                    </span>
+                </label>
+            </div>
         </div>
         {% if user.is_authenticated %}
         <button type="submit" class="btn btn-outline-danger" id="searchButton">ルートを検索　<i
@@ -68,4 +120,6 @@
         {% endif %}
     </form>
 </div>
+
+<script src="{% static 'js/index.js' %}"></script>
 {% endblock %}

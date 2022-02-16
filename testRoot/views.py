@@ -240,3 +240,6 @@ def like(request, id):
     
 def topPage(request):
     return render(request, 'testRoot/topPage.html')
+
+def topPage1(request):
+    return render(request, 'testRoot/topPage1.html')
