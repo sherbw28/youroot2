@@ -237,3 +237,6 @@ def like(request, id):
         return redirect(request.META['HTTP_REFERER'])
     else:
         return redirect('index')
+    
+def topPage(request):
+    return render(request, 'testRoot/topPage.html')

@@ -1,7 +1,7 @@
 from unicodedata import name
 from django.contrib import admin
 from django.urls import path, include
-from testRoot.views import index, list_play, list_eat, test, list_all, test_direction, rootDisplay, test1, test2, test3, test4, test5, user, save, detail, like
+from testRoot.views import index, list_play, list_eat, test, list_all, test_direction, rootDisplay, test1, test2, test3, test4, test5, user, save, detail, like, topPage
 from django.views.generic import RedirectView
 from . import settings
 from django.contrib.staticfiles.urls import static
@@ -11,7 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', RedirectView.as_view(url='testRoot/')),
+    path('', RedirectView.as_view(url='topPage/')),
     path('testRoot/', index, name='index'),
     path('testRoot/list_play', list_play, name='list_play'),
     path('testRoot/list_eat', list_eat, name='list_eat'),
@@ -27,7 +27,8 @@ urlpatterns = [
     path('user/<int:id>', user, name='user'),
     path('testRoot/save', save, name='save'),
     path('testRoot/<int:id>/detail', detail, name='detail'),
-    path('testRoot/<int:id>/like', like, name='like')
+    path('testRoot/<int:id>/like', like, name='like'),
+    path('topPage/', topPage, name='topPage')
 ]
 
 urlpatterns += staticfiles_urlpatterns()
