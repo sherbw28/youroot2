@@ -8,6 +8,8 @@
   .l-wrapper_01 {
       margin: 1rem auto;
       width: 95%;
+      display:flex;
+      
     }
     
     .l-wrapper_01:hover {
@@ -17,15 +19,19 @@
     }
     
     .card_01 {
+      width:100%;
       background-color: #fff;
       box-shadow: 0 0 8px rgba(0, 0, 0, .16);
       color: #212121;
       text-decoration: none;
+      display:flex;
+      flex-direction: column;
     }
     
     .card__header_01 {
       display: flex;
       flex-wrap: wrap;
+      margin-top:auto;
     }
     
     .card__title_01 {
@@ -45,9 +51,15 @@
     .card__image_01 {
       width: 100%;
     }
+
+    .border-line{
+      margin-top:1%;
+      border-top: 1px solid #ddd;
+    }
     
     .card__body_01 {
       padding: 0 1.5rem;
+      margin-top: auto;
     }
     
     .card__text_01 {
@@ -70,6 +82,7 @@
     .card__footer_01 {
       padding: 1rem;
       border-top: 1px solid #ddd;
+      /*margin-top: auto;*/
     }
     
     .button_01 {
