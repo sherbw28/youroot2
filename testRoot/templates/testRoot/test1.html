@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block content %}
-<div style="margin-top:10%;"
+<div style="margin-top:10%;"></div>
 <div class="flex">
 {% for list in lists %}
 <div class="l-wrapper_01" style="margin-right:1%;">
@@ -9,11 +9,12 @@
     <div class="card__header_01">
         <p class="card__title_01">{{list.name}}</p>
         <figure class="card__thumbnail_01">
-        <img src="/media/images/あすま.jpeg" alt="サムネイル" class="card__image_01">
+        <img src="/media/{{ list.image }}" alt="サムネイル" class="card__image_01">
         </figure>
     </div>
     <div class="card__body_01">
         <p class="card__text2_01">{{list.address}}</p>
+        <p class="card__text2_01">{{list.comment}}</p>
     </div>
     <div class="card__footer_01">
         <p class="card__text_01"><a href="#" class="button_01 -compact">お気に入り</a></p>
