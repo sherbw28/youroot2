@@ -2,70 +2,75 @@
 {% load static %}
 {% block content %}
 <h1 style="margin: 130px;">{{content.name}}</h1>
-
-<div class="container" style="background-color: #EEEEEE; margin-top: 130px;">
-    <div class="row">
-        <div class="col">
-            <h1 style="text-align: center;">{{content.first.name}}</h1>
-            <hr />
-            <p style="text-align: center; line-height: 20;">{{content.first.address}}</p>
-            <form action="{% url 'like' content.first.id%}" method="post">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-outline-danger">like<i class="bi bi-heart"></i></button>
-            </form>
-        </div>
-        <div class="col">
-            <iframe
-                src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&amp;q={{ content.first.address }}'
-                width="100%" height="400" frameborder='0' style="text-align: center;">
-            </iframe>
-        </div>
+<div class="flex">
+    <div class="l-wrapper_01" style="margin-right:1%;">
+        <article class="card_01">
+            <div class="card__header_01">
+                
+                <figure class="card__thumbnail_01">
+                    <!--<img src="/media/images/あすま.jpeg" alt="サムネイル" class="card__image_01">-->
+                    <img src="/media/{{content.first.image}}" width="100%" height="100%" border="0" />
+                </figure>
+            </div>
+            <div class="border-line"></div>
+            <div class="card__body_01">
+                <p class="card__title_01">{{content.first.name}}</p>
+                <p class="card__text2_01">{{content.first.address}}</p>
+                <p class="card__text2_01">{{content.first.comment}}</p>
+            </div>
+            <div class="card__footer_01">
+                <form action="{% url 'like' content.first.id%}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-danger">like<i class="bi bi-heart"></i></button>
+                </form>
+            </div>
+        </article>
     </div>
-    <!-- <img src="/media/{{content.first.image}}" width="100%" height="100%" border="0" /> -->
-</div>
-<hr />
-<div class="container" style="background-color: #EEEEEE; margin-top: 130px;">
-    <div class="row">
-        <div class="col">
-            <h1 style="text-align: center;">{{content.second.name}}</h1>
-            <hr />
-            <p style="text-align: center; line-height: 20;">{{content.second.address}}</p>
-            <form action="{% url 'like' content.second.id%}" method="post">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-outline-danger">like<i class="bi bi-heart"></i></button>
-            </form>
-        </div>
-        <div class="col">
-            <iframe
-                src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&amp;q={{ content.second.address }}'
-                width="100%" height="400" frameborder='0' style="text-align: center;">
-            </iframe>
-        </div>
+    <div class="l-wrapper_01" style="margin-right:1%;">
+        <article class="card_01">
+            <div class="card__header_01">
+                
+                <figure class="card__thumbnail_01">
+                    <img src="/media/{{content.second.image}}" width="100%" height="100%" border="0" />
+                </figure>
+            </div>
+            <div class="border-line"></div>
+            <div class="card__body_01">
+                <p class="card__title_01">{{content.second.name}}</p>
+                <p class="card__text2_01">{{content.second.address}}</p>
+                <p class="card__text2_01">{{content.second.comment}}</p>
+            </div>
+            <div class="card__footer_01">
+                <form action="{% url 'like' content.second.id%}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-danger">like<i class="bi bi-heart"></i></button>
+                </form>
+            </div>
+        </article>
+    </div>
+    <div class="l-wrapper_01" style="margin-right:1%;">
+        <article class="card_01">
+            <div class="card__header_01">
+                
+                <figure class="card__thumbnail_01">
+                    <img src="/media/{{content.third.image}}" width="100%" height="100%" border="0" />
+                </figure>
+            </div>
+            <div class="border-line"></div>
+            <div class="card__body_01">
+                <p class="card__title_01">{{content.third.name}}</p>
+                <p class="card__text2_01">{{content.third.address}}</p>
+                <p class="card__text2_01">{{content.third.comment}}</p>
+            </div>
+            <div class="card__footer_01">
+                <form action="{% url 'like' content.third.id%}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-danger">like<i class="bi bi-heart"></i></button>
+                </form>
+            </div>
+        </article>
     </div>
 </div>
-<hr />
-<div class="container" style="background-color: #EEEEEE; margin-top: 130px;">
-    <div class="row">
-        <div class="col">
-            <h1 style="text-align: center;">{{content.third.name}}</h1>
-            <hr />
-            <p style="text-align: center; line-height: 20;">{{content.third.address}}</p>
-            <form action="{% url 'like' content.third.id%}" method="post">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-outline-danger">like<i class="bi bi-heart"></i></button>
-            </form>
-        </div>
-        <div class="col">
-            <iframe
-                src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&amp;q={{ content.third.address }}'
-                width="100%" height="400" frameborder='0' style="text-align: center;">
-            </iframe>
-        </div>
-    </div>
-</div>
-<hr />
-
-
 <div id="map" style="margin-top: 100px;"></div>
 
 <input type="hidden" id="ido1" name="chart_labels" value="{{ content.first.ido }}">
