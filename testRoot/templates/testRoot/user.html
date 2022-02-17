@@ -4,20 +4,20 @@
 
 <div class="container" style="margin-top: 130px;">
     <h2 style="color: #3c4c46;">Your Root</h2>
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover" style="background-color: #e3f3e5;">
         <tr>
             <th style="color: #3c4c46;">追加日</th><th style="color: #3c4c46;">名前</th>
         </tr>
         {% for list in lists %}
             <tr>
                 <td>{{list.created_at}}</td>
-                <td><a href="{% url 'detail' list.pk%}"><p>{{list.name}}</p></a></td>
+                <td><div class="wrapper"><a href="{% url 'detail' list.pk%}" class="effect-box">{{list.name}}</a></div></td>
             </tr>
         {% endfor %}
     </table>
 
     <h2 style="color: #3c4c46;">Your Place</h2>
-    <table class="table table-striped table-hover" style="color: #3c4c46;">
+    <table class="table table-striped table-hover" style="color: #3c4c46; background-color: #e3f3e5;">
         <tr>
             <th style="color: #3c4c46;">追加日</th><th style="color: #3c4c46;">名前</th><th style="color: #3c4c46;">いいね</th>
         </tr>
