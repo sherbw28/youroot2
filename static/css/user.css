@@ -49,6 +49,10 @@
   left:50%;
 }
 
+a:hover {
+    color: #3c4c46;
+}
+
 a {
     color: #3c4c46;
 }
