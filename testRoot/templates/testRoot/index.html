@@ -2,7 +2,6 @@
 {% load static %}
 {% block content %}
 <div id="searchArea">
-    <h1>詳細設定</h1>
     <form action="{% url 'test1' %}" method="post">
         {% csrf_token %}
         <!-- <select class="form-select" aria-label="Default select example" name="area">
@@ -10,7 +9,7 @@
             <option value="佐賀県">佐賀県</option>
             <option value="福岡県">福岡県</option>
         </select> -->
-        <div class="checkArea">
+        <!-- <div class="checkArea">
             <fieldset class="row mb-3" style="margin-top: 10px;">
                 <legend class="col-form-label col-sm-2 pt-0">エリア選択</legend>
                 <div class="col-sm-10">
@@ -24,6 +23,75 @@
                     </div>
                 </div>
             </fieldset>
+        </div> -->
+        <div class="main-container-check">
+            <h2>エリアを選択!</h2>
+            <div class="check-buttons">
+                <label class="custom-check">
+                    <input type="checkbox" value="佐賀県" name="pref" />
+                    <span class="check-btn"><i class="las la-check"></i>
+                        <div class="hobbies-icon-check">
+                            <h3>佐賀県</h3>
+                        </div>
+                    </span>
+                </label>
+                <label class="custom-check">
+                    <input type="checkbox" value="福岡県" name="pref"/>
+                    <span class="check-btn"><i class="las la-check"></i>
+                        <div class="hobbies-icon-check">
+                            <h3>福岡県</h3>
+                        </div>
+                    </span>
+                </label>
+                <label class="custom-check">
+                    <input type="checkbox" value="長崎県" name="pref"/>
+                    <span class="check-btn"><i class="las la-check"></i>
+                        <div class="hobbies-icon-check">
+                            <h3>長崎県</h3>
+                        </div>
+                    </span>
+                </label>
+                <label class="custom-check">
+                    <input type="checkbox" value="大分県" name="pref"/>
+                    <span class="check-btn"><i class="las la-check"></i>
+                        <div class="hobbies-icon-check">
+                            <h3>大分県</h3>
+                        </div>
+                    </span>
+                </label>
+                <label class="custom-check">
+                    <input type="checkbox" value="熊本県" name="pref"/>
+                    <span class="check-btn"><i class="las la-check"></i>
+                        <div class="hobbies-icon-check">
+                            <h3>熊本県</h3>
+                        </div>
+                    </span>
+                </label>
+                <label class="custom-check">
+                    <input type="checkbox" value="鹿児島県" name="pref"/>
+                    <span class="check-btn"><i class="las la-check"></i>
+                        <div class="hobbies-icon-check">
+                            <h3>鹿児島県</h3>
+                        </div>
+                    </span>
+                </label>
+                <label class="custom-check">
+                    <input type="checkbox" value="宮崎県" name="pref"/>
+                    <span class="check-btn"><i class="las la-check"></i>
+                        <div class="hobbies-icon-check">
+                            <h3>宮崎県</h3>
+                        </div>
+                    </span>
+                </label>
+                <label class="custom-check">
+                    <input type="checkbox" value="沖縄県" name="pref"/>
+                    <span class="check-btn"><i class="las la-check"></i>
+                        <div class="hobbies-icon-check">
+                            <h3>沖縄県</h3>
+                        </div>
+                    </span>
+                </label>
+            </div>
         </div>
         <!-- <div class="checkArea">
             <fieldset class="row mb-3">
@@ -62,7 +130,8 @@
                 </div>
             </fieldset>
         </div> -->
-        <div class="main-container">
+
+        <div class="main-container" style="margin-top: 100px;">
             <h2>どういった雰囲気がいい?</h2>
             <div class="radio-buttons">
                 <label class="custom-radio">
@@ -115,7 +184,7 @@
             </div>
         </div>
         {% if user.is_authenticated %}
-        <button type="submit" class="btn btn-outline-danger" id="searchButton">ルートを検索　<i
+        <button type="submit" class="btn btn-outline-primary" id="searchButton">ルートを検索　<i
                 class="bi bi-search"></i></button>
         {% endif %}
     </form>
