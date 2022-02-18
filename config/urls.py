@@ -2,7 +2,7 @@ from unicodedata import name
 from django.contrib import admin
 from django.urls import path, include
 # from testRoot.views import index, list_play, list_eat, test, list_all, test_direction, rootDisplay, test1, test2, test3, test4, test5, user, save, detail, like, topPage, topPage1
-from testRoot.views import index, test_direction, test1, test2, user, detail, like, topPage, topPage1
+from testRoot.views import index, test_direction, test1, test2, user, detail, like, topPage, topPage1, topIndex
 # from testRoot.views import list_play, list_eat, test, list_all, rootDisplay, test3, test4, test5, save
 from django.views.generic import RedirectView
 from . import settings
@@ -25,6 +25,7 @@ urlpatterns = [
     path('testRoot/<int:id>/like', like, name='like'),
     path('testRoot/topPage', topPage, name='topPage'),
     path('topPage/', topPage1, name='topPage1'),
+    path('accounts/logout/topIndex/', topIndex, name='topIndex'),
     # path('testRoot/list_play', list_play, name='list_play'),
     # path('testRoot/list_eat', list_eat, name='list_eat'),
     # path('testRoot/list_all', list_all, name='list_all'),

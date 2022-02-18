@@ -49,7 +49,11 @@ def test1(request):
             keido1 = list.keido
             name1 = list.name
             address1 = list.address
+<<<<<<< HEAD
             number1 = 1
+=======
+
+>>>>>>> newshimizu2
         if i == c:
             list_test_3 = list
             ido3 = list.ido
@@ -148,6 +152,8 @@ def topPage(request):
 def topPage1(request):
     return render(request, 'testRoot/topPage1.html')
 
+def topIndex(request):
+    return render(request, 'testRoot/topPage1.html')
 # def test3(request):
 #     return render(request, 'testRoot/test3.html')
 
