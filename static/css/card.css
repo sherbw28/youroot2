@@ -10,10 +10,16 @@
   .flexbox{
     display: block!important;
   }
+  .l-wrapper_01{
+    margin-right:3%!important;
+  }
 }
 @media screen and (max-width:480px) {
   .flexbox{
     display:block!important;
+  }
+  .l-wrapper_01{
+    margin-right:3%!important;
   }
 }
 
