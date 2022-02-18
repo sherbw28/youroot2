@@ -103,7 +103,8 @@
   .login_input:focus {
     background-color: white;
     width: 300px;
-    color: #53e3a6;
+    /* color: #53e3a6; */
+    color: black;
   }
   #login-button {
     -webkit-appearance: none;
@@ -113,15 +114,18 @@
     background-color: white;
     border: 0;
     padding: 10px 15px;
-    color: #53e3a6;
+    /* color: #53e3a6; */
+    color: black;
     border-radius: 3px;
     width: 250px;
     cursor: pointer;
     font-size: 18px;
     transition-duration: 0.25s;
+    font-weight: bold;
   }
   #login-button:hover {
-    background-color: #f5f7f9;
+    /* background-color: #f5f7f9; */
+    background-color: #EEEEEE;
   }
   .bg-bubbles {
     position: absolute;
