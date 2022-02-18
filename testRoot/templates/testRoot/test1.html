@@ -4,7 +4,7 @@
 <div style="margin-top:10%;"></div>
 <div class="flex">
 {% for list in lists %}
-{{ forloop.counter0 }}
+<!-- {{ forloop.counter0 }} -->
 <div class="l-wrapper_01" style="margin-right:1%;">
     <article class="card_01">
     <div class="card__header_01">
@@ -36,6 +36,7 @@
 <div id="map" style="margin-top:1%;margin-left:2%; height:50%;width:50%;float:left;"></div>
 
 <div class="container">
+    <h1>ルートを保存</h1>
     <form action="{% url 'user' user.id%}" method="post" style="margin-top:10%;margin-left:10%;float:left;">
         {% csrf_token %}
         {{keepForm.as_p}}

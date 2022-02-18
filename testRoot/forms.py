@@ -78,7 +78,7 @@ class KeepRootForm(forms.ModelForm):
         model = KeepRoot
         fields = '__all__'
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'name'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ルート名前'}),
             'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'userName', 'id': 'author1', 'type': 'hidden'}),
             'first': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'first', 'id': 'first', 'type': 'hidden'}),
             'second': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'second', 'id': 'second', 'type': 'hidden'}),

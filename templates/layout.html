@@ -49,20 +49,20 @@
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a href="{% url 'user' user.id%}" class="nav-link">{{user}}</a>
+                        <div class="wrapper"><a href="{% url 'user' user.id%}" class="nav-link effect-box">{{user}}</a></div>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'test2' %}" class="nav-link">おすすめ登録!</a>
+                        <div class="wrapper"><a href="{% url 'test2' %}" class="nav-link effect-box">おすすめ登録!</a></div>
                     </li>
                     <li class="nav-item">
-                        <a href='{% url "logout" %}' class="logout nav-link">logout</a>
+                        <div class="wrapper"><a href='{% url "logout" %}' class="logout nav-link effect-box">logout</a></div>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a href='{% url "login" %}' class="login nav-link">login</a>
+                        <div class="wrapper"><a href='{% url "login" %}' class="login nav-link effect-box">login</a></div>
                     </li>
                     <li class="nav-item">
-                        <a href='{% url "accounts:signup" %}' class='signup nav-link'> Sign up </a>
+                        <div class="wrapper"><a href='{% url "accounts:signup" %}' class='signup nav-link effect-box'> Sign up </a></div>
                     </li>
                     {% endif %}
                 </ul>
