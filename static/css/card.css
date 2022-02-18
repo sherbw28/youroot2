@@ -13,6 +13,15 @@
   .l-wrapper_01{
     margin-right:3%!important;
   }
+  #map{
+    width:95%!important;
+    float:none!important;
+  }
+  #touroku{
+    margin-top:0!important;
+    margin-left:0!important;
+    float:none!important;
+  }
 }
 @media screen and (max-width:480px) {
   .flexbox{
@@ -20,6 +29,14 @@
   }
   .l-wrapper_01{
     margin-right:3%!important;
+  }
+  #map{
+    width:95%!important;
+    float:none!important;
+  }
+  #touroku{
+    margin-top:0!important;
+    float:none!important;
   }
 }
 
