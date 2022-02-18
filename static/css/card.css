@@ -1,10 +1,21 @@
 /*--------------------------------------
   カード型_01
 --------------------------------------*/
-.flex{
+.flexbox{
     display: flex;
     margin-left:2%;
   }
+
+@media screen and (max-width:960px) {
+  .flexbox{
+    display: block!important;
+  }
+}
+@media screen and (max-width:480px) {
+  .flexbox{
+    display:block!important;
+  }
+}
 
   .abc{
     margin-top:2%;
@@ -14,7 +25,7 @@
     text-align:center;
     background:orangered;
     color:#fff;
-    margin-left:20px;
+    margin-left:0;
   }
 
   .l-wrapper_01 {
@@ -80,10 +91,14 @@
         padding-bottom: 0;
     }
     
+    .labels{
+      font-size:0.8rem;
+      margin-bottom:0;
+    }
     .card__text2_01 {
-      font-size: .8rem;
-      margin-top: 0;
-      margin-bottom: 2rem;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      margin-left:2%;
     }
     
     .card__text_01 + .card__text_01 {

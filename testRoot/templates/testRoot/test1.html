@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <div style="margin-top:10%;"></div>
-<div class="flex">
+<div class="flexbox">
 {% for list in lists %}
 <div class="l-wrapper_01" style="margin-right:1%;">
     <article class="card_01">
@@ -13,7 +13,7 @@
     </div>
     <div class="border-line"></div>
     <div class="card__body_01">
-        <div class="flex" style="margin-left:0%;">
+        <div style="display:flex;">
             {% if forloop.counter == 1 %}
                 <div class="abc"><p>A</p></div>
             {% elif forloop.counter == 2 %}
@@ -23,7 +23,9 @@
             {% endif %}
             <p class="card__title_01">{{list.name}}</p>
         </div>
+        <p class="labels">住所:</p>
         <p class="card__text2_01">{{list.address}}</p>
+        <p class="labels">オススメポイント:</p>
         <p class="card__text2_01">{{list.comment}}</p>
     </div>
     <div class="card__footer_01">
@@ -34,7 +36,6 @@
 {% endfor %}
 </div>
 <div id="map" style="margin-top:1%;margin-left:2%; height:50%;width:50%;float:left;"></div>
-
 <div class="container">
     <form action="{% url 'user' user.id%}" method="post" style="margin-top:10%;margin-left:10%;float:left;">
         {% csrf_token %}
@@ -42,7 +43,6 @@
         <button class="btn btn-outline-primary">ルートを保存</button>
     </form>
 </div>
-
 <input type="hidden" id="ido1" name="chart_labels" value="{{ ido1 }}">
 <input type="hidden" id="keido1" name="chart_labels" value="{{ keido1 }}">
 <input type="hidden" id="ido2" name="chart_labels" value="{{ ido2 }}">
