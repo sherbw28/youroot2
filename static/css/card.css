@@ -5,6 +5,18 @@
     display: flex;
     margin-left:2%;
   }
+
+  .abc{
+    margin-top:2%;
+    height:20px;
+    width:20px;
+    border-radius:50%;
+    text-align:center;
+    background:orangered;
+    color:#fff;
+    margin-left:20px;
+  }
+
   .l-wrapper_01 {
       margin: 1rem auto;
       width: 95%;
@@ -35,7 +47,6 @@
     }
     
     .card__title_01 {
-      padding: 1rem 1.5rem 0;
       font-size: 1.6rem;
       order: 1;
       margin-bottom: 0.6rem;

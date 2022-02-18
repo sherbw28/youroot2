@@ -4,27 +4,31 @@
 <div style="margin-top:10%;"></div>
 <div class="flex">
 {% for list in lists %}
+<<<<<<< HEAD
 <!-- {{ forloop.counter0 }} -->
+=======
+>>>>>>> newshimizu4
 <div class="l-wrapper_01" style="margin-right:1%;">
     <article class="card_01">
     <div class="card__header_01">
-        
         <figure class="card__thumbnail_01" style="width:100%;">
             <img src="/media/{{ list.image }}" alt="サムネイル" class="card__image_01">
         </figure>
     </div>
     <div class="border-line"></div>
     <div class="card__body_01">
-        <p class="card__title_01">{{list.name}}</p>
+        <div class="flex" style="margin-left:0%;">
+            {% if forloop.counter == 1 %}
+                <div class="abc"><p>A</p></div>
+            {% elif forloop.counter == 2 %}
+                <div class="abc"><p>B</p></div>
+            {% else %}
+                <div class="abc"><p>C</p></div>
+            {% endif %}
+            <p class="card__title_01">{{list.name}}</p>
+        </div>
         <p class="card__text2_01">{{list.address}}</p>
         <p class="card__text2_01">{{list.comment}}</p>
-        {% if forloop.counter == 1 %}
-            <p>A</p>
-        {% elif forloop.counter == 2 %}
-            <p>B</p>
-        {% else %}
-            <p>C</p>
-        {% endif %}
     </div>
     <div class="card__footer_01">
         <p class="card__text_01"><a href="https://www.yahoo.co.jp/" class="button_01 -compact">URLはこちら</a></p>
