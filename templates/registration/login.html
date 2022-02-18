@@ -1,25 +1,64 @@
 {% extends '../layout.html' %}
 
 {% block content %}
-<h1 style="margin-top: 130px;">Login</h1>
-<section class='common-form'>
+<!-- <h1 style="margin-top: 130px;">Login</h1> -->
+<!-- <section class='common-form'>
     {% if form.errors %}
-        <p class='error-msg'>ユーザー名かパスワードが間違っています!</p>
+    <p class='error-msg'>ユーザー名かパスワードが間違っています!</p>
     {% endif %}
 
     {% if next %}
-        {% if user.is_authenticated %}
-            <p class='error-msg'>ログインをするか会員登録をしてください</p>
-        {% else %}
-            <p class='error-msg'>ログインしてください</p>
-        {% endif %}
+    {% if user.is_authenticated %}
+    <p class='error-msg'>ログインをするか会員登録をしてください</p>
+    {% else %}
+    <p class='error-msg'>ログインしてください</p>
+    {% endif %}
     {% endif %}
 
     <form action='{% url "login" %}' method='post'>
         {% csrf_token %}
-        <input type='hidden' name='next' value='{{ next }}'/>
+        <input type='hidden' name='next' value='{{ next }}' />
         {{ form.as_p }}
         <button type='submit'>Login</button>
     </form>
-</section>
+</section> -->
+
+<div class="body_login" style="margin-top: 90px;">
+    <div class="wrapper-login">
+        <div class="container-login">
+            <h1>Welcome</h1>
+
+            <form class="form_login" action='{% url "login" %}' method="post">
+                {% csrf_token %}
+                <input type='hidden' name='next' value='{{ next }}' />
+                {{ form.as_p }}
+                <input type="text" placeholder="ユーザー名" class="login_input">
+                <input type="password" placeholder="パスワード" class="login_input">
+                <button type="submit" id="login-button">Login</button>
+            </form>
+        </div>
+
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    $("#login-button").click(function (event) {
+        event.preventDefault();
+
+        $('form_login').fadeOut(500);
+        $('.wrapper-login').addClass('form-success');
+    });
+</script>
 {% endblock %}
