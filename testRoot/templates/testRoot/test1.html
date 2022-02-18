@@ -4,6 +4,7 @@
 <div style="margin-top:10%;"></div>
 <div class="flex">
 {% for list in lists %}
+{{ forloop.counter0 }}
 <div class="l-wrapper_01" style="margin-right:1%;">
     <article class="card_01">
     <div class="card__header_01">
@@ -17,6 +18,13 @@
         <p class="card__title_01">{{list.name}}</p>
         <p class="card__text2_01">{{list.address}}</p>
         <p class="card__text2_01">{{list.comment}}</p>
+        {% if forloop.counter == 1 %}
+            <p>A</p>
+        {% elif forloop.counter == 2 %}
+            <p>B</p>
+        {% else %}
+            <p>C</p>
+        {% endif %}
     </div>
     <div class="card__footer_01">
         <p class="card__text_01"><a href="https://www.yahoo.co.jp/" class="button_01 -compact">URLはこちら</a></p>

@@ -49,12 +49,14 @@ def test1(request):
             keido1 = list.keido
             name1 = list.name
             address1 = list.address
+            number1 = 1
         if i == c:
             list_test_3 = list
             ido3 = list.ido
             keido3 = list.keido
             name3 = list.name
             address3 = list.address
+            number3 = 3
             
     for i, list in enumerate(lists_test_eat):
         if i == b:
@@ -63,6 +65,7 @@ def test1(request):
             keido2 = list.keido
             name2 = list.name
             address2 = list.address
+            number2 = 2
                 
     lists = [list_test_1, list_test_2, list_test_3]
     initial_dict = {
