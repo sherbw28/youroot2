@@ -24,7 +24,166 @@
 <div class="container">
     <form method="post" class="post-form" style="text-align: center;" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        <!-- {{ form.as_p }} -->
+        <input type="hidden" name="csrfmiddlewaretoken"
+            value="KDHAB7BVC4jrTNLwNyOg00aDpjqDS5L449he6jq8ytME1A4vaLQqLfptvENd0P08">
+        <p>
+            <label for="id_type">種類:</label>
+            <select name="type" required="" id="id_type">
+                <option value="" selected="">---------</option>
+
+                <option value="eat">ご飯</option>
+
+                <option value="play">遊び</option>
+
+            </select>
+
+
+        </p>
+        <p>
+            <label for="subsName1">名前:</label>
+            <input type="text" name="name" class="form-control" placeholder="name" id="subsName1" maxlength="255"
+                required="">
+
+
+        </p>
+        <p>
+            <label for="id_atmosphere">雰囲気:</label>
+            <select name="atmosphere" required="" id="id_atmosphere">
+                <option value="" selected="">---------</option>
+
+                <option value="1">一人で</option>
+
+                <option value="2">賑やか</option>
+
+                <option value="3">落ち着いた</option>
+
+            </select>
+
+
+        </p>
+        <p>
+            <label for="id_pref">所在地:</label>
+            <select name="pref" required="" id="id_pref">
+                <option value="" selected="">---------</option>
+
+                <option value="1">北海道</option>
+
+                <option value="2">青森県</option>
+
+                <option value="3">岩手県</option>
+
+                <option value="4">宮城県</option>
+
+                <option value="5">秋田県</option>
+
+                <option value="6">山形県</option>
+
+                <option value="7">福島県</option>
+
+                <option value="8">茨城県</option>
+
+                <option value="9">栃木県</option>
+
+                <option value="10">群馬県</option>
+
+                <option value="11">埼玉県</option>
+
+                <option value="12">千葉県</option>
+
+                <option value="13">東京都</option>
+
+                <option value="14">神奈川県</option>
+
+                <option value="15">新潟県</option>
+
+                <option value="16">富山県</option>
+
+                <option value="17">石川県</option>
+
+                <option value="18">福井県</option>
+
+                <option value="19">山梨県</option>
+
+                <option value="20">長野県</option>
+
+                <option value="21">岐阜県</option>
+
+                <option value="22">静岡県</option>
+
+                <option value="23">愛知県</option>
+
+                <option value="24">三重県</option>
+
+                <option value="25">滋賀県</option>
+
+                <option value="26">京都府</option>
+
+                <option value="27">大阪府</option>
+
+                <option value="28">兵庫県</option>
+
+                <option value="29">奈良県</option>
+
+                <option value="30">和歌山県</option>
+
+                <option value="31">鳥取県</option>
+
+                <option value="32">島根県</option>
+
+                <option value="33">岡山県</option>
+
+                <option value="34">広島県</option>
+
+                <option value="35">山口県</option>
+
+                <option value="36">徳島県</option>
+
+                <option value="37">香川県</option>
+
+                <option value="38">愛媛県</option>
+
+                <option value="39">高知県</option>
+
+                <option value="40">福岡県</option>
+
+                <option value="41">佐賀県</option>
+
+                <option value="42">長崎県</option>
+
+                <option value="43">熊本県</option>
+
+                <option value="44">大分県</option>
+
+                <option value="45">宮崎県</option>
+
+                <option value="46">鹿児島県</option>
+
+                <option value="47">沖縄県</option>
+
+            </select>
+
+
+        </p>
+        <p>
+            <label for="id_image">画像:</label>
+            <input type="file" name="image" accept="image/*" required="" id="id_image">
+
+
+        </p>
+        <p>
+            <label for="id_comment">コメント:</label>
+            <textarea name="comment" cols="40" rows="10" class="form-control" placeholder="一言コメント!" maxlength="500"
+                required="" id="id_comment" style="height: 38px;"></textarea>
+
+
+            <input type="hidden" name="address" class="form-control" placeholder="address" id="address1"><input
+                type="hidden" name="ido" class="form-control" placeholder="緯度" id="ido1"
+                value="33.589941976622946"><input type="hidden" name="keido" class="form-control" placeholder="経度"
+                id="keido1" value="130.42068448215028"><input type="hidden" name="author" value="1"
+                id="id_author"><input type="hidden" name="good" value="0" id="id_good">
+
+        </p>
         <button type="submit" class="btn btn-primary" style="margin-bottom: 30px;">登録!</button>
     </form>
 </div>
