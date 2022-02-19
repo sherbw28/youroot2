@@ -110,3 +110,18 @@
    padding-bottom: 500px;
 }
 
+.center_topPage{
+   text-align: center;
+   padding-top: 100px;
+}
+
+.topic_topPage{
+   display: inline-block;
+   margin-left: 70px;
+   margin-right: 70px;
+}
+
+.col_topPage {
+   margin: 0 auto;
+   margin-top: 30px;
+}
