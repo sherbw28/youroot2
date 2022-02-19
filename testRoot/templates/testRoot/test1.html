@@ -37,12 +37,8 @@
 </div>
 <div id="map" style="margin-top:1%;margin-left:2%; height:50%;width:50%;float:left;"></div>
 <div class="container">
-<<<<<<< HEAD
-    <h1>ルートを保存</h1>
-    <form action="{% url 'user' user.id%}" method="post" style="margin-top:10%;margin-left:10%;float:left;">
-=======
+  
     <form action="{% url 'user' user.id%}" method="post" id="touroku" style="margin-top:10%;margin-left:10%;float:left;">
->>>>>>> newshimizu4
         {% csrf_token %}
         {{keepForm.as_p}}
         <button class="btn btn-outline-primary">ルートを保存</button>
