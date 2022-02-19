@@ -124,4 +124,10 @@
 .col_topPage {
    margin: 0 auto;
    margin-top: 30px;
+   padding: 30px;
+   padding-bottom: 60px
+}
+
+.margin_topPage {
+   margin-bottom: 50px;
 }
