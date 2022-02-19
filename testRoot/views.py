@@ -99,9 +99,26 @@ def test1(request):
 def test2(request):
     if request.method == "POST":
         form = TypeOfPlaceForm(request.POST, request.FILES)
-        print(form.is_valid())
+
         if form.is_valid():
+            check_ido = TypeOfPlace.objects.values_list('ido')
+            check_keido = TypeOfPlace.objects.values_list('keido')
             post = form.save(commit=False)
+            for a_ido in check_ido:
+                for b_ido in a_ido:
+                    if b_ido == post.ido:
+                        for a_keido in check_keido:
+                            for b_keido in a_keido:
+                                if b_keido == post.keido:
+                                    initial_dict = {
+                                        'author': request.user,
+                                    }
+                                    form = TypeOfPlaceForm(initial=initial_dict)
+                                    content = {
+                                        'content':'ごめんなさい！既にその場所は登録されています！',
+                                        'form':form
+                                    }
+                                    return render(request, 'testRoot/test2.html', content)
             post.save()
             return redirect('index')
     else:

@@ -25,7 +25,7 @@
             <div class="card__footer_01">
                 <form action="{% url 'like' content.first.id%}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-outline-danger">like<i class="bi bi-heart"></i></button>
+                    <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
                 </form>
             </div>
         </article>
@@ -52,7 +52,7 @@
             <div class="card__footer_01">
                 <form action="{% url 'like' content.second.id%}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-outline-danger">like<i class="bi bi-heart"></i></button>
+                    <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
                 </form>
             </div>
         </article>
@@ -78,7 +78,7 @@
             <div class="card__footer_01">
                 <form action="{% url 'like' content.third.id%}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-outline-danger">like<i class="bi bi-heart"></i></button>
+                    <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
                 </form>
             </div>
         </article>
