@@ -1,11 +1,23 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block content %}
+<!-- <header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">あそびこんしぇるじゅ</div>
+        <div class="masthead-heading text-uppercase">遊びを無限大に</div>
+        {% if user.is_authenticated %}
+        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'index' %}">今すぐ始める</a>
+        {% else %}
+        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'login' %}">今すぐ始める</a>
+        {% endif %}
+    </div>
+</header> -->
 <div class="mainn1">
 
-    <p class="mainn">
-        <span class="cls">あそびこんしぇるじゅ</span><br>遊びを無限大に
-    </p>
+    <h1 class="mainn">
+        <span class="cls">あそびこんしぇるじゅ</span><br><span class="cls2">遊びを無限大に</span>
+    </h1>
+
 
     {% if user.is_authenticated %}
     <div class="button05">
@@ -56,24 +68,25 @@
         <p>行ってみたい場所を保存してみよう<br>あとで保存したルートを見返すことができます。</p>
     </div>
 </div> -->
-<div class="container" style="color: #3c4c46; text-align: center; margin-top: 80px;">
-    <h1>What You Can do</h1>
+
+<div class="container page-section" style="color: #3c4c46; text-align: center; margin-top: 80px;">
+    <h1>What You Can Do</h1>
     <div class="row row-cols-auto" style="text-align: center;">
         <div class="col col_topPage">
             <img src="{% static 'image/search.png' %}" width="80px" class="margin_topPage">
-            <h2 style="font-size: 32px;">1.自動でルートを検索</h2>
+            <h2 style="font-size: 32px;">1&nbsp;自動でルートを検索</h2>
             <p class="margin_topPage">Search Where You Need To Go</p>
             <p class="margin_topPage">行きたい雰囲気、場所を設定してみよう<br>自動でランダムにルートを検索してくれます。</p>
         </div>
         <div class="col col_topPage">
             <img src="{% static 'image/heart.png' %}" width="80px" class="margin_topPage">
-            <h2 style="font-size: 32px;">2.お気に入りを見つけよう</h2>
+            <h2 style="font-size: 32px;">2&nbsp;お気に入りを見つけよう</h2>
             <p class="margin_topPage">Find You Favorite Place</p>
             <p class="margin_topPage">いいと思った場所にいいねを押してみよう<br>あなたのオススメの場所を他の人にも紹介してあげてね。</p>
         </div>
         <div class="col col_topPage">
             <img src="{% static 'image/save.png' %}" width="80px" class="margin_topPage">
-            <h2 style="font-size: 32px;">3.好きなルートを保存</h2>
+            <h2 style="font-size: 32px;">3&nbsp;好きなルートを保存</h2>
             <p class="margin_topPage">Save The Root You Want To Go</p>
             <p class="margin_topPage">行ってみたい場所を保存してみよう<br>あとで保存したルートを見返すことができます。</p>
         </div>

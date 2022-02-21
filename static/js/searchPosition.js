@@ -1,12 +1,29 @@
 var marker = null;
-var lat = 33.589941976622946;
-var lng = 130.42068448215028;
+// var lat = 33.589941976622946;
+// var lng = 130.42068448215028;
 
 function init() {
+
+	function success(pos) {
+		var lat = pos.coords.latitude;
+		var lng = pos.coords.longitude;
+        var map = new google.maps.Map(document.getElementById('searchMap'), {
+            zoom: 12, center: { lat: lat, lng: lng }
+        });
+	}
+	function fail(error) {
+        var lat = 35.6812405
+        var lng = 139.7649361
+        var map = new google.maps.Map(document.getElementById('searchMap'), {
+            zoom: 12, center: { lat: lat, lng: lng }
+        });
+	}
+    navigator.geolocation.getCurrentPosition(success, fail);
+
     //初期化
-    var map = new google.maps.Map(document.getElementById('searchMap'), {
-        zoom: 12, center: { lat: lat, lng: lng }
-    });
+    // var map = new google.maps.Map(document.getElementById('searchMap'), {
+    //     zoom: 12, center: { lat: lat, lng: lng }
+    // });
 
     document.getElementById('lat').value = lat;
     document.getElementById('lng').value = lng;
