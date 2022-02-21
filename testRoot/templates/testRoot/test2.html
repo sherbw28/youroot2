@@ -2,8 +2,7 @@
 {% load static %}
 
 {% block content %}
-<<<<<<< HEAD
-{% if content %}
+<!-- {% if content %}
 <div class="alert alert-danger" role="alert" style="margin-top: 130px;">
     {{content}}
 </div>
@@ -31,7 +30,9 @@
         </div>
     </form>
     <div style="text-align: center;">
-=======
+
+        
+{% endif %} -->
 <div class="search_form">
     <div class="cp_iptxt">
         <label class="ef">
@@ -39,12 +40,9 @@
         </label>
     </div>
     <div style="text-align: center; margin-top:1%;">
->>>>>>> newshimizu5
         <button class="btn btn-outline-primary" onclick="nameSearch()">探す</button>
     </div>
 </div>
-
-{% endif %}
 
 <div id="searchMap"></div>
 
@@ -55,8 +53,6 @@
             <form method="post" class="form_test" style="text-align: center;" enctype="multipart/form-data">
                 {% csrf_token %}
                 <!-- {{ form.as_p }} -->
-                <input type="hidden" name="csrfmiddlewaretoken"
-                    value="KDHAB7BVC4jrTNLwNyOg00aDpjqDS5L449he6jq8ytME1A4vaLQqLfptvENd0P08">
                 <p>
                     <label for="subsName1">名前:</label>
                     <input type="text" name="name" class="form-control" placeholder="name" id="subsName1" maxlength="255"
@@ -68,38 +64,7 @@
                         <select name="type" required="" id="id_type" class="form-select">
                             <option value="" selected="">---------</option>
 
-<<<<<<< HEAD
-<div class="container">
-    <form method="post" class="post-form" style="text-align: center;" enctype="multipart/form-data">
-        {% csrf_token %}
-        <!-- {{ form.as_p }} -->
-        <p>
-            <label for="id_type">種類:</label>
-            <select name="type" required="" id="id_type">
-                <option value="" selected="">---------</option>
-
-                <option value="eat">ご飯</option>
-
-                <option value="play">遊び</option>
-
-            </select>
-
-
-        </p>
-        <p>
-            <label for="subsName1">名前:</label>
-            <input type="text" name="name" class="form-control" placeholder="name" id="subsName1" maxlength="255"
-                required="">
-
-
-        </p>
-        <p>
-            <label for="id_atmosphere">雰囲気:</label>
-            <select name="atmosphere" required="" id="id_atmosphere">
-                <option value="" selected="">---------</option>
-=======
                             <option value="eat">ご飯</option>
->>>>>>> newshimizu5
 
                             <option value="play">遊び</option>
 
