@@ -116,7 +116,9 @@ def test2(request):
                                     form = TypeOfPlaceForm(initial=initial_dict)
                                     content = {
                                         'content':'ごめんなさい！既にその場所は登録されています！',
-                                        'form':form
+                                        'form':form,
+                                        'id': request.user.id,
+                                        'author': request.user,
                                     }
                                     return render(request, 'testRoot/test2.html', content)
             post.save()
@@ -126,7 +128,12 @@ def test2(request):
             'author': request.user,
         }
         form = TypeOfPlaceForm(initial=initial_dict)
-    return render(request, 'testRoot/test2.html', {'form': form})
+        content  = {
+            'form': form,
+            'id': request.user.id,
+            'author': request.user,
+        }
+    return render(request, 'testRoot/test2.html', content)
 
 
 

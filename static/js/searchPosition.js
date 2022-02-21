@@ -114,3 +114,52 @@ function clickMap(geo, map) {
     });
 
 }
+
+function getPreview(event){
+
+    let addressPre = document.getElementById('card_address')
+    let titlePre = document.getElementById('card_title')
+    let commentPre = document.getElementById('card_comment')
+
+    let address1 = document.getElementById('address1')
+    let title1 = document.getElementById('subsName1')
+    let comment1 = document.getElementById('id_comment')
+
+    if(address1.value == ""){
+        addressPre.innerHTML = "ｘｘｘ";
+    }else {
+        addressPre.innerHTML = address1.value;
+    }
+
+    if(title1.value == ""){
+        titlePre.innerHTML = "タイトル";
+    }else {
+        titlePre.innerHTML = title1.value;
+    }
+
+    if(comment1.value == ""){
+        commentPre.innerHTML = "コメント";
+    }else {
+        commentPre.innerHTML = comment1.value;
+    }
+}
+
+document.getElementById("id_image").addEventListener("change", function(e) {
+    const file = e.target.files[0];
+
+    // Only process image files.
+    if (!file.type.match('image.*')) {
+        return false;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (function(theFile) {
+        return function(e) {
+            const imgElm = document.getElementById("card_image");
+            imgElm.src = e.target.result;
+        }    
+    })(file);
+ 
+    reader.readAsDataURL(file);
+
+}, false);

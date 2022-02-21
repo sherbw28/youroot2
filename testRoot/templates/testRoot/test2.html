@@ -2,37 +2,11 @@
 {% load static %}
 
 {% block content %}
-<!-- {% if content %}
-<div class="alert alert-danger" role="alert" style="margin-top: 130px;">
+{% if content %}
+<div class="alert alert-danger" role="alert" style="margin: 130px;">
     {{content}}
-</div>
-<div style="margin-top: 30px; line-height: 50px;">
-    <form class="form-horizontal">
-        <div class="form-group">
-            <label for="where" class="col-xs-2 control-label"></label>
-            <div class="col-xs-4">
-                <input type="text" id="where" placeholder="どこ？" class="form-control">
-            </div>
-        </div>
-    </form>
-    <div style="text-align: center;">
-        <button class="btn btn-outline-primary" onclick="nameSearch()">探す</button>
-    </div>
-</div>
-{% else %}
-<div style="margin-top: 130px; line-height: 50px;">
-    <form class="form-horizontal">
-        <div class="form-group">
-            <label for="where" class="col-xs-2 control-label"></label>
-            <div class="col-xs-4">
-                <input type="text" id="where" placeholder="どこ？" class="form-control">
-            </div>
-        </div>
-    </form>
-    <div style="text-align: center;">
-
-        
-{% endif %} -->
+</div>  
+{% endif %}
 <div class="search_form">
     <div class="cp_iptxt">
         <label class="ef">
@@ -199,8 +173,8 @@
 
                     <input type="hidden" name="address" class="form-control" placeholder="address" id="address1"><input
                         type="hidden" name="ido" class="form-control" placeholder="緯度" id="ido1"
-                        value="33.589941976622946"><input type="hidden" name="keido" class="form-control" placeholder="経度"
-                        id="keido1" value="130.42068448215028"><input type="hidden" name="author" value="1"
+                        value="35.6812405"><input type="hidden" name="keido" class="form-control" placeholder="経度"
+                        id="keido1" value="139.7649361"><input type="hidden" name="author" value="{{id}}"
                         id="id_author"><input type="hidden" name="good" value="0" id="id_good">
 
                 </p>
@@ -212,26 +186,27 @@
         <article class="card_01">
         <div class="card__header_01">
             <figure class="card__thumbnail_01" style="width:100%;">
-                <img src="/media/images/プレビュー.png" alt="サムネイル" class="card__image_01">
+                <img src="/media/images/プレビュー.png" alt="サムネイル" class="card__image_01" id="card_image">
             </figure>
         </div>
         <div class="border-line"></div>
         <div class="card__body_01">
             <div style="display:flex;">
                 <div class="abc"><p>B</p></div>
-                <p class="card__title_01">タイトル</p>
+                <p class="card__title_01" id="card_title">タイトル</p>
             </div>
             <p class="labels">住所:</p>
-            <p class="card__text2_01">ｘｘｘ</p>
+            <p class="card__text2_01" id="card_address">ｘｘｘ</p>
             <p class="labels">オススメポイント:</p>
-            <p class="card__text2_01">コメント</p>
+            <p class="card__text2_01" id="card_comment">コメント</p>
         </div>
         <div class="card__footer_01">
-            <p class="card__text_01"><a href="" class="button_01 -compact">プレビューを更新する</a></p>
+            <button class="card__text_01 button_01 -compact" onclick="getPreview(event)">プレビューを更新する</button>
         </div>
         </article>
     </div>
 </div>
+<!-- {{form.as_p}} -->
 <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&libraries=places&callback=init"
     async defer></script>
