@@ -45,14 +45,12 @@
 <div id="map" style="margin-top:1%;margin-left:2%; height:50%;width:50%;float:left;"></div>
 <div class="test1_form" style="float:left;">
     <div style="margin:2%;">
-        <h3 style="margin-top:1%;">今回のルートを保存する</h3>
-        <form action="{% url 'user' user.id%}" method="post" id="touroku"
-            style="">
+        <h3 style="margin-top:1%; color: #3c4c46; text-align: center;">今回のルートを保存する</h3>
+        <form action="{% url 'user' user.id%}" method="post" id="touroku">
             {% csrf_token %}
             <!-- {{keepForm.as_p}} -->
             <p>
-                <div style="margin-top:5%;"
-                <label for="id_name">Name:</label>
+                <div style="margin-top:5%;"></div>
                 <input type="text" name="name" class="form-control mx-auto" placeholder="ルート名" maxlength="255" required=""
                     id="id_name"style="width:95%;height:84px;">
 
@@ -64,7 +62,7 @@
 
             </p>
             <div style="margin-top:5%;"></div>
-            <div class="text-center" style=""><button class="btn btn-outline-primary"style="">ルートを保存</button></div>
+            <div class="text-center"><button class="btn btn-outline-primary">ルートを保存</button></div>
         </form>
     </div>
 </div>
