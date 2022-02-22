@@ -43,16 +43,16 @@
     {% endfor %}
 </div>
 <div id="map" style="margin-top:1%;margin-left:2%; height:50%;width:50%;float:left;"></div>
-<div class="container">
-
+<div class="test1_form" style="float:left;">
+    <h3>今回のルートを保存する</h3>
     <form action="{% url 'user' user.id%}" method="post" id="touroku"
-        style="margin-top:10%;margin-left:10%;float:left;">
+        style="">
         {% csrf_token %}
         <!-- {{keepForm.as_p}} -->
         <p>
             <label for="id_name">Name:</label>
-            <input type="text" name="name" class="form-control" placeholder="ルート名前" maxlength="255" required=""
-                id="id_name">
+            <input type="text" name="name" class="form-control mx-auto" placeholder="ルート名前" maxlength="255" required=""
+                id="id_name"style="width:95%;">
 
 
             <input type="hidden" name="first" value="{{first_id}}" class="form-control" placeholder="first" id="first"><input
@@ -61,7 +61,7 @@
                 type="hidden" name="author" value="{{author}}" class="form-control" placeholder="userName" id="author1">
 
         </p>
-        <button class="btn btn-outline-primary">ルートを保存</button>
+        <div class="text-center" style=""><button class="btn btn-outline-primary"style="">ルートを保存</button></div>
     </form>
 </div>
 <input type="hidden" id="ido1" name="chart_labels" value="{{ ido1 }}">
