@@ -145,8 +145,8 @@ def user(request, id):
             post.save()
             return redirect('index')
     else:
-        lists = KeepRoot.objects.filter(author=request.user)
-        lists_place = TypeOfPlace.objects.filter(author=request.user)
+        lists = KeepRoot.objects.order_by('-created_at').filter(author=request.user)
+        lists_place = TypeOfPlace.objects.order_by('-created_at').filter(author=request.user)
         content = {
             'lists': lists,
             'lists_place': lists_place
