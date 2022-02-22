@@ -93,6 +93,10 @@ def test1(request):
         'name3': name3,
         'address3': address3,
         'keepForm': keepForm,
+        'author': request.user.id,
+        'first_id':list_test_1.id,
+        'second_id':list_test_2.id,
+        'third_id':list_test_3.id,
     }
     return render(request, 'testRoot/test1.html', content)
 
