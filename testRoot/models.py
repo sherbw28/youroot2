@@ -1,7 +1,9 @@
+from random import choice, choices
 from urllib import request
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.conf import settings
+from django.forms import ChoiceField
 from django.utils import timezone
 from cgitb import text
 from tkinter import CASCADE
@@ -40,6 +42,7 @@ class TypeOfPlace(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     pref = models.ForeignKey(PrefeCode, on_delete=models.PROTECT, null=True)
+    city = models.CharField(max_length=255, null=True)
     ido = models.FloatField(null=True)
     keido = models.FloatField(null=True)
     image = models.ImageField(upload_to='images/', null=True)

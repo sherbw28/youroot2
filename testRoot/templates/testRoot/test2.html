@@ -5,7 +5,7 @@
 {% if content %}
 <div class="alert alert-danger" role="alert" style="margin: 130px;">
     {{content}}
-</div>  
+</div>
 {% endif %}
 <div class="search_form">
     <div class="cp_iptxt">
@@ -29,8 +29,8 @@
                 <!-- {{ form.as_p }} -->
                 <p>
                     <label for="subsName1">名前:</label>
-                    <input type="text" name="name" class="form-control" placeholder="name" id="subsName1" maxlength="255"
-                        required="">
+                    <input type="text" name="name" class="form-control" placeholder="name" id="subsName1"
+                        maxlength="255" required="">
                 </p>
                 <div style="display:flex;">
                     <p style="margin-left:4%;">
@@ -60,6 +60,9 @@
                     <p style="margin-right:4%;">
                         <label for="id_pref">所在地:</label>
                         <select name="pref" required="" id="id_pref" class="form-select">
+                            <option value="">都道府県を選択して下さい</option>
+                        </select>
+                        <!-- <select name="pref" required="" id="id_pref" class="form-select">
                             <option value="" selected="">---------</option>
 
                             <option value="1">北海道</option>
@@ -156,7 +159,14 @@
 
                             <option value="47">沖縄県</option>
 
-                        </select>
+                        </select> -->
+                    </p>
+                    <p>
+                        <label for="id_city">市町村:</label>
+                        <select name="city" maxlength="255" required="" id="id_city" class="form-select">
+                            <option value="">市区町村で絞り込む</option>
+                        </select>            
+                        <!-- <input type="text" name="city" maxlength="255" required="" id="id_city" class="form-select"> -->
                     </p>
                 </div>
                 <p>
@@ -167,8 +177,8 @@
                 </p>
                 <p>
                     <label for="id_comment">コメント:</label>
-                    <textarea name="comment" cols="40" rows="10" class="form-control" placeholder="一言コメント!" maxlength="500"
-                        required="" id="id_comment" style="height: 86px;resize:none;"></textarea>
+                    <textarea name="comment" cols="40" rows="10" class="form-control" placeholder="一言コメント!"
+                        maxlength="500" required="" id="id_comment" style="height: 86px;resize:none;"></textarea>
 
 
                     <input type="hidden" name="address" class="form-control" placeholder="address" id="address1"><input
@@ -180,29 +190,32 @@
                 </p>
                 <button type="submit" class="btn btn-primary" style="margin-bottom: 30px;">登録!</button>
             </form>
+
         </div>
     </div>
     <div class="l-wrapper_01 test2_card">
         <article class="card_01">
-        <div class="card__header_01">
-            <figure class="card__thumbnail_01" style="width:100%;">
-                <img src="/media/images/プレビュー.png" alt="サムネイル" class="card__image_01" id="card_image">
-            </figure>
-        </div>
-        <div class="border-line"></div>
-        <div class="card__body_01">
-            <div style="display:flex;">
-                <div class="abc"><p>B</p></div>
-                <p class="card__title_01" id="card_title">タイトル</p>
+            <div class="card__header_01">
+                <figure class="card__thumbnail_01" style="width:100%;">
+                    <img src="/media/images/プレビュー.png" alt="サムネイル" class="card__image_01" id="card_image">
+                </figure>
             </div>
-            <p class="labels">住所:</p>
-            <p class="card__text2_01" id="card_address">ｘｘｘ</p>
-            <p class="labels">オススメポイント:</p>
-            <p class="card__text2_01" id="card_comment">コメント</p>
-        </div>
-        <div class="card__footer_01">
-            <button class="card__text_01 button_01 -compact" onclick="getPreview(event)">プレビューを更新する</button>
-        </div>
+            <div class="border-line"></div>
+            <div class="card__body_01">
+                <div style="display:flex;">
+                    <div class="abc">
+                        <p>B</p>
+                    </div>
+                    <p class="card__title_01" id="card_title">タイトル</p>
+                </div>
+                <p class="labels">住所:</p>
+                <p class="card__text2_01" id="card_address">ｘｘｘ</p>
+                <p class="labels">オススメポイント:</p>
+                <p class="card__text2_01" id="card_comment">コメント</p>
+            </div>
+            <div class="card__footer_01">
+                <button class="card__text_01 button_01 -compact" onclick="getPreview(event)">プレビューを更新する</button>
+            </div>
         </article>
     </div>
 </div>
@@ -210,5 +223,9 @@
 <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&libraries=places&callback=init"
     async defer></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{% static 'js/searchPosition.js' %}"></script>
+<script src="{% static 'js/prefecture.js' %}"></script>
+<script>
+</script>
 {% endblock %}

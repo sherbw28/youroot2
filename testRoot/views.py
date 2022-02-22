@@ -19,17 +19,33 @@ def test1(request):
         # area = request.POST.get("area")
         prefs = request.POST.getlist("pref")
         atmos = request.POST.get('atm')
-        if len(prefs) == 0:
-            return render(request, 'testRoot/index.html')
-        if atmos == 'all':
-            lists_test_play = TypeOfPlace.objects.filter(type="play").filter(pref__name__in=prefs)
-            lists_test_eat = TypeOfPlace.objects.filter(type="eat").filter(pref__name__in=prefs)
+        cities = request.POST.getlist('city')
+        print(len(cities))
+        if len(cities) == 0:
+            if len(prefs) == 0:
+                return render(request, 'testRoot/index.html')
+            if atmos == 'all':
+                lists_test_play = TypeOfPlace.objects.filter(type="play").filter(pref__name__in=prefs)
+                lists_test_eat = TypeOfPlace.objects.filter(type="eat").filter(pref__name__in=prefs)
+            else:
+                lists_test_play = TypeOfPlace.objects.filter(type="play").filter(pref__name__in=prefs).filter(atmosphere__type=atmos)
+                lists_test_eat = TypeOfPlace.objects.filter(type="eat").filter(pref__name__in=prefs).filter(atmosphere__type=atmos)
+                
+            if (len(lists_test_play) < 2) or (len(lists_test_eat) < 1):
+                return render(request, 'testRoot/index.html') 
         else:
-            lists_test_play = TypeOfPlace.objects.filter(type="play").filter(pref__name__in=prefs).filter(atmosphere__type=atmos)
-            lists_test_eat = TypeOfPlace.objects.filter(type="eat").filter(pref__name__in=prefs).filter(atmosphere__type=atmos)
+            if len(prefs) == 0:
+                return render(request, 'testRoot/index.html')
+            if atmos == 'all':
+                lists_test_play = TypeOfPlace.objects.filter(type="play").filter(pref__name__in=prefs).filter(city__in=cities)
+                lists_test_eat = TypeOfPlace.objects.filter(type="eat").filter(pref__name__in=prefs).filter(city__in=cities)
+            else:
+                lists_test_play = TypeOfPlace.objects.filter(type="play").filter(pref__name__in=prefs).filter(atmosphere__type=atmos).filter(city__in=cities)
+                lists_test_eat = TypeOfPlace.objects.filter(type="eat").filter(pref__name__in=prefs).filter(atmosphere__type=atmos).filter(city__in=cities)
+                
+            if (len(lists_test_play) < 2) or (len(lists_test_eat) < 1):
+                return render(request, 'testRoot/index.html')
             
-        if (len(lists_test_play) < 2) or (len(lists_test_eat) < 1):
-            return render(request, 'testRoot/index.html')
         
     else:
         lists_test_play = TypeOfPlace.objects.filter(type="play")

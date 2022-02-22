@@ -24,10 +24,17 @@
                 </div>
             </fieldset>
         </div> -->
-        <div class="main-container-check">
+        <!-- <select name="pref" required="" id="id_pref" class="form-select">
+            <option value="">都道府県を選択して下さい</option>
+        </select>
+        <select name="city" maxlength="255" required="" id="id_city" class="form-select">
+            <option value="">市区町村で絞り込む</option>
+        </select> -->
+        <div class="main-container-check container">
+            <div class="row row-cols-auto">
             <h2>エリアを選択!</h2>
-            <div class="check-buttons">
-                <label class="custom-check">
+            <div class="check-buttons col" style="border-bottom: 1px solid #3c4c46; border-radius: 30px;" id="pref_area">
+                <!-- <label class="custom-check">
                     <input type="checkbox" value="佐賀県" name="pref" checked/>
                     <span class="check-btn"><i class="las la-check"></i>
                         <div class="hobbies-icon-check">
@@ -90,8 +97,13 @@
                             <h3>沖縄県</h3>
                         </div>
                     </span>
-                </label>
+                </label> -->
             </div>
+
+            <div class="check-buttons col" style="border-bottom: 1px solid #3c4c46; border-radius: 30px; margin-top: 20px;" id="city_area">
+                <!-- <h2>市町村を選択</h2> -->
+            </div>
+        </div>
         </div>
         <!-- <div class="checkArea">
             <fieldset class="row mb-3">
@@ -184,11 +196,13 @@
             </div>
         </div>
         {% if user.is_authenticated %}
-        <button type="submit" class="btn btn-outline-primary" id="searchButton">ルートを検索　<i
+        <button type="submit" class="btn btn-outline-primary" id="searchButton">ルートを検索&nbsp;<i
                 class="bi bi-search"></i></button>
         {% endif %}
     </form>
 </div>
 
 <script src="{% static 'js/index.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/prefectureIndex.js' %}"></script>
 {% endblock %}
