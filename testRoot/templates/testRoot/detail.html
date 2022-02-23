@@ -3,7 +3,7 @@
 {% block content %}
 <h1 style="margin-top: 130px; text-align: center; color: #3c4c46;">{{content.name}}</h1><hr />
 <div class="flexbox">
-    <div class="l-wrapper_01" style="margin-right:1%;">
+    <div class="l-wrapper_01 is-surface" style="margin-right:1%;">
         <article class="card_01">
             <div class="card__header_01">
                 <figure class="card__thumbnail_01">
@@ -27,6 +27,63 @@
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
                 </form>
+                <div id="card_switch" style="margin-left:auto;cursor:pointer"><img src="/static/image/コメントアイコン.png"></div>
+            </div>
+        </article>
+        <article class="card_02">
+            <div style="display:flex;margin:1%;">
+                <p style="font-size:1.6rem;font-weight: bold;">{{content.first.name}}</p>
+                <div style="margin-left:auto;"><img src="/static/image/バックスペースのアイコン素材.png" id="card_switch_back"　alt="サンプル" onmouseover="this.src='/static/image/バックスペースのアイコン素材2.png'" onmouseout="this.src='/static/image/バックスペースのアイコン素材.png'" style="cursor:pointer;"></div>
+            </div>
+            <div style="border-top: 1px solid #ddd;"></div>
+            <div class="comment-view" style="height:68%;">
+                <div style="display:flex;">
+                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px" height="32px"></div>
+                    <div class="balloon1-left">
+                        <p>こんにちは。これは例です。</p>
+                    </div>
+                </div>
+                <div style="display:flex;">
+                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px" height="32px"></div>
+                    <div class="balloon1-left">
+                        <p>こんにちは。これは例です。</p>
+                    </div>
+                </div>
+                <div style="display:flex;">
+                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px" height="32px"></div>
+                    <div class="balloon1-left">
+                        <p>こんにちは。これは例です。</p>
+                    </div>
+                </div>
+                <div style="display:flex;">
+                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px" height="32px"></div>
+                    <div class="balloon1-left">
+                        <p>こんにちは。これは例です。</p>
+                    </div>
+                </div>
+                <div style="display:flex;">
+                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px" height="32px"></div>
+                    <div class="balloon1-left">
+                        <p>こんにちは。これは例です。</p>
+                    </div>
+                </div>
+                <div style="display:flex;">
+                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px" height="32px"></div>
+                    <div class="balloon1-left">
+                        <p>こんにちは。これは例です。</p>
+                    </div>
+                </div>
+                <div style="display:flex;">
+                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px" height="32px"></div>
+                    <div class="balloon1-left">
+                        <p>こんにちは。これは例です。</p>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #ddd;"></div>
+            <div class="mycomment" style="margin:2%;height:13%;">
+                <div class="comment-area"><p></p></div>
+                <button>送信</button>
             </div>
         </article>
     </div>
@@ -93,9 +150,10 @@
 <input type="hidden" id="ido3" name="chart_labels" value="{{ content.third.ido }}">
 <input type="hidden" id="keido3" name="chart_labels" value="{{ content.third.keido }}">
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&libraries=places&callback=initMap"
     async defer></script>
 <script src="{% static 'js/rootDisplay.js' %}"></script>
+<script src="{% static 'js/card.js' %}"></script>
 {% endblock %}

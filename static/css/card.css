@@ -4,6 +4,7 @@
 .flexbox{
     display: flex;
     margin-left:2%;
+    
   }
 
 @media screen and (max-width:960px) {
@@ -54,7 +55,8 @@
   .l-wrapper_01 {
       margin: 1rem auto;
       width: 95%;
-      display:flex;
+      display: flex;
+      position:relative;
       
     }
     
@@ -73,10 +75,48 @@
       display:flex;
       flex-direction: column;
     }
+    .card_02 {
+      position:absolute;
+      width:100%;
+      height:100%;
+      background-color: #fff;
+      box-shadow: 0 0 8px rgba(0, 0, 0, .16);
+      color: #212121;
+      text-decoration: none;
+      display:flex;
+      flex-direction: column;
+      
+    }
+    .is-surface .card_01{
+      opacity:1;
+      transform:rotateY(0deg);
+      transition:
+          opacity 50ms 200ms,
+          transform 300ms;
+    }
+    .is-surface .card_02 {
+      opacity: 0;
+      transform: rotateY(90deg);
+      transition:
+          opacity 50ms 200ms,
+          transform 300ms;
+    }
+    .is-reverse .card_01 {
+      opacity: 0;
+      transform:rotateY(90deg);
+      transition:
+          opacity 50ms 200ms,
+          transform 300ms;
+    }
+    .is-reverse .card_02 {
+      opacity: 1;
+      transform:rotateY(0deg);
+      transition:
+          opacity 100ms 150ms,
+          transform 300ms 150ms;
+    }
     
     .card__header_01 {
-      display: flex;
-      flex-wrap: wrap;
       margin-top:auto;
     }
     
@@ -91,6 +131,7 @@
     .card__thumbnail_01 {
       margin: 0;
       order: 0;
+      width:100%;
     }
   
     .card__image_01 {
@@ -129,6 +170,7 @@
     }
     
     .card__footer_01 {
+      display: flex;
       padding: 1rem;
       border-top: 1px solid #ddd;
       text-align: center;
@@ -158,4 +200,46 @@
     .button_01.-compact:hover,
     .button_01.-compact:focus {
       background-color: #6bb6ff;
+    }
+
+    /*---------------カードの裏側----------------*/
+
+    .comment-view{
+      overflow: scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: none; 
+    }
+    .comment-view::-webkit-scrollbar {
+      display:none;
+    }
+    .comment-area{
+      height:100%;
+      border-radius:3%;
+      border: 1px solid #ddd
+    }
+    .balloon1-left {
+      position: relative;
+      display: inline-block;
+      margin: 1.5em 0 1.5em 15px;
+      padding: 7px 10px;
+      min-width: 120px;
+      max-width: 100%;
+      color: #555;
+      font-size: 16px;
+      background: #e0edff;
+    }
+    
+    .balloon1-left:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -30px;
+      margin-top: -15px;
+      border: 15px solid transparent;
+      border-right: 15px solid #e0edff;
+    }
+    
+    .balloon1-left p {
+      margin: 0;
+      padding: 0;
     }
