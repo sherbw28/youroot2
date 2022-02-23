@@ -57,24 +57,28 @@
                 {% endfor %}
                 {% endif %}
                 <div style="border-top: 1px solid #ddd;"></div>
-                <div class="mycomment" style="margin:2%;height:13%;">
-                    <!-- <div class="comment-area">
-                        <p></p>
-                    </div> -->
-                    <form action="{% url 'savecomment' %}" method="post">
-                        <!-- １個目 -->
-                        {% csrf_token %}
-                        <!-- {{form.as_p}} -->
-                        <p>
-                            <input type="text" name="comment" class="form-control" placeholder="コメント" maxlength="255" required="" id="id_comment">
-                            <input type="hidden" name="comment_place" value="{{detail1}}" class="form-control" required="" id="id_comment_place">
-                            <input type="hidden" name="author" value="{{id}}" class="form-control" placeholder="userName" id="author1">
-                        </p>
-                        <div style="text-align: center;">
-                            <button type="submit" class="btn btn-outline-primary">送信</button>
-                        </div>
-                    </form>
-                </div>
+            </div>
+            <div class="mycomment" style="margin:2%;height:13%;">
+                <!-- <div class="comment-area">
+                    <p></p>
+                </div> -->
+                <form action="{% url 'savecomment' %}" method="post">
+                    <!-- １個目 -->
+                    {% csrf_token %}
+                    <!-- {{form.as_p}} -->
+                    <p>
+                        <input type="text" name="comment" class="form-control" placeholder="コメント" maxlength="255"
+                            required="" id="id_comment">
+                        <input type="hidden" name="comment_place" value="{{detail1}}" class="form-control" required=""
+                            id="id_comment_place">
+                        <input type="hidden" name="author" value="{{id}}" class="form-control" placeholder="userName"
+                            id="author1">
+                    </p>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-outline-primary">送信</button>
+                    </div>
+                </form>
+            </div>
         </article>
     </div>
     <div class="l-wrapper_01 is-surface" style="margin-right:1%;">
@@ -130,24 +134,28 @@
                 {% endfor %}
                 {% endif %}
                 <div style="border-top: 1px solid #ddd;"></div>
-                <div class="mycomment" style="margin:2%;height:13%;">
-                    <!-- <div class="comment-area">
-                        <p></p>
-                    </div> -->
-                    <form action="{% url 'savecomment' %}" method="post">
-                        <!-- 2個目 -->
-                        {% csrf_token %}
-                        <!-- {{form.as_p}} -->
-                        <p>
-                            <input type="text" name="comment" class="form-control" placeholder="コメント" maxlength="255" required="" id="id_comment">
-                            <input type="hidden" name="comment_place" value="{{detail2}}" class="form-control" required="" id="id_comment_place">
-                            <input type="hidden" name="author" value="{{id}}" class="form-control" placeholder="userName" id="author1">
-                        </p>
-                        <div style="text-align: center;">
-                            <button type="submit" class="btn btn-outline-primary">送信</button>
-                        </div>
-                    </form>
-                </div>
+            </div>
+            <div class="mycomment" style="margin:2%;height:13%;">
+                <!-- <div class="comment-area">
+                    <p></p>
+                </div> -->
+                <form action="{% url 'savecomment' %}" method="post">
+                    <!-- 2個目 -->
+                    {% csrf_token %}
+                    <!-- {{form.as_p}} -->
+                    <p>
+                        <input type="text" name="comment" class="form-control" placeholder="コメント" maxlength="255"
+                            required="" id="id_comment">
+                        <input type="hidden" name="comment_place" value="{{detail2}}" class="form-control" required=""
+                            id="id_comment_place">
+                        <input type="hidden" name="author" value="{{id}}" class="form-control" placeholder="userName"
+                            id="author1">
+                    </p>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-outline-primary">送信</button>
+                    </div>
+                </form>
+            </div>
         </article>
     </div>
     <div class="l-wrapper_01 is-surface" style="margin-right:1%;">
@@ -203,24 +211,28 @@
                 {% endfor %}
                 {% endif %}
                 <div style="border-top: 1px solid #ddd;"></div>
-                <div class="mycomment" style="margin:2%;height:13%;">
-                    <!-- <div class="comment-area">
-                        <p></p>
-                    </div> -->
-                    <form action="{% url 'savecomment' %}" method="post">
-                        <!-- 3個目 -->
-                        {% csrf_token %}
-                        <!-- {{form.as_p}} -->
-                        <p>
-                            <input type="text" name="comment" class="form-control" placeholder="コメント" maxlength="255" required="" id="id_comment">
-                            <input type="hidden" name="comment_place" value="{{detail3}}" class="form-control" required="" id="id_comment_place">
-                            <input type="hidden" name="author" value="{{id}}" class="form-control" placeholder="userName" id="author1">
-                        </p>
-                        <div style="text-align: center;">
-                            <button type="submit" class="btn btn-outline-primary">送信</button>
-                        </div>
-                    </form>
-                </div>
+            </div>
+            <div class="mycomment" style="margin:2%;height:13%;">
+                <!-- <div class="comment-area">
+                    <p></p>
+                </div> -->
+                <form action="{% url 'savecomment' %}" method="post">
+                    <!-- 3個目 -->
+                    {% csrf_token %}
+                    <!-- {{form.as_p}} -->
+                    <p>
+                        <input type="text" name="comment" class="form-control" placeholder="コメント" maxlength="255"
+                            required="" id="id_comment">
+                        <input type="hidden" name="comment_place" value="{{detail3}}" class="form-control"
+                            required="" id="id_comment_place">
+                        <input type="hidden" name="author" value="{{id}}" class="form-control"
+                            placeholder="userName" id="author1">
+                    </p>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-outline-primary">送信</button>
+                    </div>
+                </form>
+            </div>
         </article>
     </div>
 </div>
