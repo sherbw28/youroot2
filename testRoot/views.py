@@ -1,7 +1,8 @@
+from pickle import FALSE
 from unicodedata import name
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Play, Eat, TypeOfPlace, PrefeCode, Atmosphere, SaveRoot, KeepRoot
-from .forms import PlayForm, EatForm, TypeOfPlaceForm, SaveRootForm, KeepRootForm
+from .models import Play, Eat, TypeOfPlace, PrefeCode, Atmosphere, SaveRoot, KeepRoot, CommentDetail
+from .forms import PlayForm, EatForm, TypeOfPlaceForm, SaveRootForm, KeepRootForm, CommentForm
 import random
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -175,8 +176,32 @@ def user(request, id):
 
     
 def detail(request, id):
-    content = get_object_or_404(KeepRoot, pk=id)
-    return render(request, 'testRoot/detail.html', {"content": content})
+    root = get_object_or_404(KeepRoot, pk=id)
+    initial_dict = {
+        "author": request.user,
+    }
+    form = CommentForm(initial=initial_dict)
+    comment1 = CommentDetail.objects.filter(comment_place=root.first).order_by('-created_at')
+    comment2 = CommentDetail.objects.filter(comment_place=root.second).order_by('-created_at')
+    comment3 = CommentDetail.objects.filter(comment_place=root.third).order_by('-created_at')
+    len_comment1 = len(comment1)
+    len_comment2 = len(comment2)
+    len_comment3 = len(comment3)
+    contents = {
+        "content":root,
+        "form": form,
+        'id': request.user.id,
+        'detail1':root.first.id,
+        'detail2':root.second.id,
+        'detail3':root.third.id,
+        'comment1':comment1,
+        'comment2':comment2,
+        'comment3':comment3,
+        'len_comment1':len_comment1,
+        'len_comment2':len_comment2,
+        'len_comment3':len_comment3,
+    }
+    return render(request, 'testRoot/detail.html', contents)
 
 def like(request, id):
     if request.method == 'POST':
@@ -196,6 +221,18 @@ def topPage1(request):
 
 def topIndex(request):
     return render(request, 'testRoot/topPage1.html')
+
+def savecomment(request):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            # return redirect('index')
+            return redirect(request.META['HTTP_REFERER'])
+    else:
+        return redirect('index')
+
 # def test3(request):
 #     return render(request, 'testRoot/test3.html')
 

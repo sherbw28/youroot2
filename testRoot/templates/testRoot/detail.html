@@ -1,96 +1,85 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block content %}
-<h1 style="margin-top: 130px; text-align: center; color: #3c4c46;">{{content.name}}</h1><hr />
+<h1 style="margin-top: 130px; text-align: center; color: #3c4c46;">{{content.name}}</h1>
+<hr />
 <div class="flexbox">
     <div class="l-wrapper_01 is-surface" style="margin-right:1%;">
         <article class="card_01">
             <div class="card__header_01">
                 <figure class="card__thumbnail_01">
-                    <!--<img src="/media/images/あすま.jpeg" alt="サムネイル" class="card__image_01">-->
                     <img src="/media/{{content.first.image}}" width="100%" height="100%" border="0" />
                 </figure>
             </div>
             <div class="border-line"></div>
             <div class="card__body_01">
                 <div style="display:flex;">
-                    <div class="abc"><p>A</p></div>
-                    <p class="card__title_01">{{content.first.name}}</p>
+                    <div class="abc">
+                        <p>A</p>
+                    </div>
+                    <p class="card__title_01" style="color: #3c4c46;">{{content.first.name}}</p>
                 </div>
                 <p class="labels">住所:</p>
-                <p class="card__text2_01">{{content.first.address}}</p>
+                <p class="card__text2_01" style="color: #3c4c46;">{{content.first.address}}</p>
                 <p class="labels">オススメポイント:</p>
-                <p class="card__text2_01">{{content.first.comment}}</p>
+                <p class="card__text2_01" style="color: #3c4c46;">{{content.first.comment}}</p>
             </div>
             <div class="card__footer_01">
                 <form action="{% url 'like' content.first.id%}" method="post">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
                 </form>
-                <div id="card_switch" style="margin-left:auto;cursor:pointer"><img src="/static/image/コメントアイコン.png"></div>
+                <div class="card_switch" style="margin-left:auto;cursor:pointer"><img src="/static/image/コメントアイコン.png">
+                </div>
             </div>
         </article>
         <article class="card_02">
             <div style="display:flex;margin:1%;">
-                <p style="font-size:1.6rem;font-weight: bold;">{{content.first.name}}</p>
-                <div style="margin-left:auto;"><img src="/static/image/バックスペースのアイコン素材.png" id="card_switch_back"　alt="サンプル" onmouseover="this.src='/static/image/バックスペースのアイコン素材2.png'" onmouseout="this.src='/static/image/バックスペースのアイコン素材.png'" style="cursor:pointer;"></div>
+                <p style="font-size:1.6rem;font-weight: bold; color: #3c4c46;">{{content.first.name}}</p>
+                <div style="margin-left:auto;"><img src="/static/image/バックスペースのアイコン素材.png" class="card_switch_back"
+                        alt="サンプル" onmouseover="this.src='/static/image/バックスペースのアイコン素材2.png'"
+                        onmouseout="this.src='/static/image/バックスペースのアイコン素材.png'" style="cursor:pointer;"></div>
             </div>
             <div style="border-top: 1px solid #ddd;"></div>
             <div class="comment-view" style="height:68%;">
+                {% if len_comment1 == 0 %}
+                <p style="text-align: center; color: #3c4c46;">あなたが最初のコメントを残そう!</p>
+                {% else %}
+                {% for comment in comment1 %}
                 <div style="display:flex;">
-                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px" height="32px"></div>
+                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px"
+                            height="32px"></div>
                     <div class="balloon1-left">
-                        <p>こんにちは。これは例です。</p>
+                        <p>{{comment}}</p>
+                        <p style="font-size: 10px; font-weight: lighter;">{{comment.created_at}}</p>
                     </div>
                 </div>
-                <div style="display:flex;">
-                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px" height="32px"></div>
-                    <div class="balloon1-left">
-                        <p>こんにちは。これは例2です。</p>
-                    </div>
+                {% endfor %}
+                {% endif %}
+                <div style="border-top: 1px solid #ddd;"></div>
+                <div class="mycomment" style="margin:2%;height:13%;">
+                    <!-- <div class="comment-area">
+                        <p></p>
+                    </div> -->
+                    <form action="{% url 'savecomment' %}" method="post">
+                        <!-- １個目 -->
+                        {% csrf_token %}
+                        <!-- {{form.as_p}} -->
+                        <p>
+                            <input type="text" name="comment" class="form-control" placeholder="コメント" maxlength="255" required="" id="id_comment">
+                            <input type="hidden" name="comment_place" value="{{detail1}}" class="form-control" required="" id="id_comment_place">
+                            <input type="hidden" name="author" value="{{id}}" class="form-control" placeholder="userName" id="author1">
+                        </p>
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-outline-primary">送信</button>
+                        </div>
+                    </form>
                 </div>
-                <div style="display:flex;">
-                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px" height="32px"></div>
-                    <div class="balloon1-left">
-                        <p>こんにちは。これは例です。</p>
-                    </div>
-                </div>
-                <div style="display:flex;">
-                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px" height="32px"></div>
-                    <div class="balloon1-left">
-                        <p>こんにちは。これは例です。</p>
-                    </div>
-                </div>
-                <div style="display:flex;">
-                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px" height="32px"></div>
-                    <div class="balloon1-left">
-                        <p>こんにちは。これは例です。</p>
-                    </div>
-                </div>
-                <div style="display:flex;">
-                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px" height="32px"></div>
-                    <div class="balloon1-left">
-                        <p>こんにちは。これは例です。</p>
-                    </div>
-                </div>
-                <div style="display:flex;">
-                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px" height="32px"></div>
-                    <div class="balloon1-left">
-                        <p>こんにちは。これは例です。</p>
-                    </div>
-                </div>
-            </div>
-            <div style="border-top: 1px solid #ddd;"></div>
-            <div class="mycomment" style="margin:2%;height:13%;">
-                <div class="comment-area"><p></p></div>
-                <button>送信</button>
-            </div>
         </article>
     </div>
-    <div class="l-wrapper_01" style="margin-right:1%;">
+    <div class="l-wrapper_01 is-surface" style="margin-right:1%;">
         <article class="card_01">
             <div class="card__header_01">
-                
                 <figure class="card__thumbnail_01">
                     <img src="/media/{{content.second.image}}" width="100%" height="100%" border="0" />
                 </figure>
@@ -98,23 +87,70 @@
             <div class="border-line"></div>
             <div class="card__body_01">
                 <div style="display:flex;">
-                    <div class="abc"><p>B</p></div>
-                    <p class="card__title_01">{{content.second.name}}</p>
+                    <div class="abc">
+                        <p>B</p>
+                    </div>
+                    <p class="card__title_01" style="color: #3c4c46;">{{content.second.name}}</p>
                 </div>
                 <p class="labels">住所:</p>
-                <p class="card__text2_01">{{content.second.address}}</p>
+                <p class="card__text2_01" style="color: #3c4c46;">{{content.second.address}}</p>
                 <p class="labels">オススメポイント:</p>
-                <p class="card__text2_01">{{content.second.comment}}</p>
+                <p class="card__text2_01" style="color: #3c4c46;">{{content.second.comment}}</p>
             </div>
             <div class="card__footer_01">
                 <form action="{% url 'like' content.second.id%}" method="post">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
                 </form>
+                <div class="card_switch" style="margin-left:auto;cursor:pointer"><img src="/static/image/コメントアイコン.png">
+                </div>
             </div>
         </article>
+        <article class="card_02">
+            <div style="display:flex;margin:1%;">
+                <p style="font-size:1.6rem;font-weight: bold; color: #3c4c46;">{{content.second.name}}</p>
+                <div style="margin-left:auto;"><img src="/static/image/バックスペースのアイコン素材.png" class="card_switch_back"
+                        alt="サンプル" onmouseover="this.src='/static/image/バックスペースのアイコン素材2.png'"
+                        onmouseout="this.src='/static/image/バックスペースのアイコン素材.png'" style="cursor:pointer;"></div>
+            </div>
+            <div style="border-top: 1px solid #ddd;"></div>
+            <div class="comment-view" style="height:68%;">
+                {% if len_comment2 == 0 %}
+                <p style="text-align: center; color: #3c4c46;">あなたが最初のコメントを残そう!</p>
+                {% else %}
+                {% for comment in comment2 %}
+                <div style="display:flex;">
+                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px"
+                            height="32px"></div>
+                    <div class="balloon1-left">
+                        <p>{{comment}}</p>
+                        <p style="font-size: 10px; font-weight: lighter;">{{comment.created_at}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+                <div style="border-top: 1px solid #ddd;"></div>
+                <div class="mycomment" style="margin:2%;height:13%;">
+                    <!-- <div class="comment-area">
+                        <p></p>
+                    </div> -->
+                    <form action="{% url 'savecomment' %}" method="post">
+                        <!-- 2個目 -->
+                        {% csrf_token %}
+                        <!-- {{form.as_p}} -->
+                        <p>
+                            <input type="text" name="comment" class="form-control" placeholder="コメント" maxlength="255" required="" id="id_comment">
+                            <input type="hidden" name="comment_place" value="{{detail2}}" class="form-control" required="" id="id_comment_place">
+                            <input type="hidden" name="author" value="{{id}}" class="form-control" placeholder="userName" id="author1">
+                        </p>
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-outline-primary">送信</button>
+                        </div>
+                    </form>
+                </div>
+        </article>
     </div>
-    <div class="l-wrapper_01" style="margin-right:1%;">
+    <div class="l-wrapper_01 is-surface" style="margin-right:1%;">
         <article class="card_01">
             <div class="card__header_01">
                 <figure class="card__thumbnail_01">
@@ -124,20 +160,67 @@
             <div class="border-line"></div>
             <div class="card__body_01">
                 <div style="display:flex;">
-                    <div class="abc"><p>C</p></div>
-                    <p class="card__title_01">{{content.third.name}}</p>
+                    <div class="abc">
+                        <p>C</p>
+                    </div>
+                    <p class="card__title_01" style="color: #3c4c46;">{{content.third.name}}</p>
                 </div>
                 <p class="labels">住所:</p>
-                <p class="card__text2_01">{{content.third.address}}</p>
+                <p class="card__text2_01" style="color: #3c4c46;">{{content.third.address}}</p>
                 <p class="labels">オススメポイント:</p>
-                <p class="card__text2_01">{{content.third.comment}}</p>
+                <p class="card__text2_01" style="color: #3c4c46;">{{content.third.comment}}</p>
             </div>
             <div class="card__footer_01">
                 <form action="{% url 'like' content.third.id%}" method="post">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
                 </form>
+                <div class="card_switch" style="margin-left:auto;cursor:pointer"><img src="/static/image/コメントアイコン.png">
+                </div>
             </div>
+        </article>
+        <article class="card_02">
+            <div style="display:flex;margin:1%;">
+                <p style="font-size:1.6rem;font-weight: bold; color: #3c4c46;">{{content.third.name}}</p>
+                <div style="margin-left:auto;"><img src="/static/image/バックスペースのアイコン素材.png" class="card_switch_back"
+                        alt="サンプル" onmouseover="this.src='/static/image/バックスペースのアイコン素材2.png'"
+                        onmouseout="this.src='/static/image/バックスペースのアイコン素材.png'" style="cursor:pointer;"></div>
+            </div>
+            <div style="border-top: 1px solid #ddd;"></div>
+            <div class="comment-view" style="height:68%;">
+                {% if len_comment3 == 0 %}
+                <p style="text-align: center; color: #3c4c46;">あなたが最初のコメントを残そう!</p>
+                {% else %}
+                {% for comment in comment3 %}
+                <div style="display:flex;">
+                    <div style="margin-top:auto;margin-bottom:auto;"><img src="/static/image/人.png" width="32px"
+                            height="32px"></div>
+                    <div class="balloon1-left">
+                        <p>{{comment}}</p>
+                        <p style="font-size: 10px; font-weight: lighter;">{{comment.created_at}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+                <div style="border-top: 1px solid #ddd;"></div>
+                <div class="mycomment" style="margin:2%;height:13%;">
+                    <!-- <div class="comment-area">
+                        <p></p>
+                    </div> -->
+                    <form action="{% url 'savecomment' %}" method="post">
+                        <!-- 3個目 -->
+                        {% csrf_token %}
+                        <!-- {{form.as_p}} -->
+                        <p>
+                            <input type="text" name="comment" class="form-control" placeholder="コメント" maxlength="255" required="" id="id_comment">
+                            <input type="hidden" name="comment_place" value="{{detail3}}" class="form-control" required="" id="id_comment_place">
+                            <input type="hidden" name="author" value="{{id}}" class="form-control" placeholder="userName" id="author1">
+                        </p>
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-outline-primary">送信</button>
+                        </div>
+                    </form>
+                </div>
         </article>
     </div>
 </div>

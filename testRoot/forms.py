@@ -1,7 +1,8 @@
 from dataclasses import fields
 from operator import attrgetter
+from tkinter import Widget
 from django import forms
-from .models import Play, Eat, TypeOfPlace, City, PrefeCode, SaveRoot, KeepRoot
+from .models import Play, Eat, TypeOfPlace, City, PrefeCode, SaveRoot, KeepRoot, CommentDetail
 
 class PlayForm(forms.ModelForm):
     class Meta:
@@ -83,4 +84,14 @@ class KeepRootForm(forms.ModelForm):
             'first': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'first', 'id': 'first', 'type': 'hidden'}),
             'second': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'second', 'id': 'second', 'type': 'hidden'}),
             'third': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'third', 'id': 'third', 'type': 'hidden'}),
+        }
+        
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = CommentDetail
+        fields = '__all__'
+        widgets = {
+            'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'userName', 'id': 'author1', 'type': 'hidden'}),
+            'comment_place': forms.TextInput(attrs={'class': 'form-control'}),
+            'comment': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'コメント'}),
         }

@@ -53,6 +53,15 @@ class TypeOfPlace(models.Model):
     def __str__(self):
         return self.name
     
+class CommentDetail(models.Model):
+    comment = models.CharField(max_length=255)
+    comment_place = models.ForeignKey(TypeOfPlace, on_delete=models.PROTECT)
+    author = models.ForeignKey(get_user_model(),on_delete=models.CASCADE, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.comment
+    
 class SaveRoot(models.Model):
     rootName = models.CharField(max_length=255)
     name1 = models.CharField(max_length=255)
