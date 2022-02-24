@@ -4,7 +4,7 @@
 <h1 style="margin-top: 130px; text-align: center; color: #3c4c46;">{{content.name}}</h1>
 <hr />
 <div class="flexbox">
-    <div class="l-wrapper_01 is-surface" style="margin-right:1%;">
+    <div class="l-wrapper_01 is-surface is-surface_03" style="margin-right:1%;">
         <article class="card_01">
             <div class="card__header_01">
                 <figure class="card__thumbnail_01">
@@ -29,6 +29,10 @@
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
                 </form>
+                <div class="card_switch_03" style="margin-left:auto;cursor:pointer;"><img src="/static/image/星アイコン1.png" 
+                    onmouseover="this.src='/static/image/星アイコン2.png'"
+                    onmouseout="this.src='/static/image/星アイコン1.png'">
+                </div>
                 <div class="card_switch" style="margin-left:auto;cursor:pointer"><img src="/static/image/コメントアイコン.png">
                 </div>
             </div>
@@ -80,8 +84,44 @@
                 </form>
             </div>
         </article>
+        <article class="card_03">
+            <div style="position:relative;width:100%;height:100%;">
+                <div class="dark_back"></div>
+                <div style="position:absolute;width:100%;height:100%;display:flex;justify-content:center;align-items:center;">
+                    <div class="evaluate_area">
+                        <div class="card_switch_03_back" style="float:right;cursor:pointer;"><img src="/static/image/バックスペースのアイコン素材.png" 
+                            onmouseover="this.src='/static/image/バックスペースのアイコン素材2.png'"
+                            onmouseout="this.src='/static/image/バックスペースのアイコン素材.png'">
+                        </div>
+                        <div class="hyouka">
+                            <input id="hoshi1" type="radio" name="hoshi" value="5" />
+                            <label for="hoshi1">★</label>
+                            <input id="hoshi2" type="radio" name="hoshi" value="4" />
+                            <label for="hoshi2">★</label>
+                            <input id="hoshi3" type="radio" name="hoshi" value="3" />
+                            <label for="hoshi3">★</label>
+                            <input id="hoshi4" type="radio" name="hoshi" value="2" />
+                            <label for="hoshi4">★</label>
+                            <input id="hoshi5" type="radio" name="hoshi" value="1" />
+                            <label for="hoshi5">★</label>
+                        </div>
+                        <p style="text-align:center;">年代を選択してください。</p>
+                        <div style="margin: 0 auto;width:70%;"><input type="hidden" class="single-slider" value="20" /></div>
+
+                        <p style="text-align:center;margin-top:3%;">性別を選択してください。</p>
+                        <div class="gender_group">
+                            <input type="radio" id="man" value="1"><label for="man" class="gender" style="margin:1%;"><img src="/static/image/男マーク.png"></label>
+                            <input type="radio" id="woman" value="2"><label for="woman" class="gender" style="margin:1%;"><img src="/static/image/女マーク.png"></label>
+                        </div>
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-outline-primary">送信</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
     </div>
-    <div class="l-wrapper_01 is-surface" style="margin-right:1%;">
+    <div class="l-wrapper_01 is-surface is-surface_03" style="margin-right:1%;">
         <article class="card_01">
             <div class="card__header_01">
                 <figure class="card__thumbnail_01">
@@ -106,6 +146,10 @@
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
                 </form>
+                <div class="card_switch_03" style="margin-left:auto;cursor:pointer;"><img src="/static/image/星アイコン1.png" 
+                    onmouseover="this.src='/static/image/星アイコン2.png'"
+                    onmouseout="this.src='/static/image/星アイコン1.png'">
+                </div>
                 <div class="card_switch" style="margin-left:auto;cursor:pointer"><img src="/static/image/コメントアイコン.png">
                 </div>
             </div>
@@ -157,8 +201,44 @@
                 </form>
             </div>
         </article>
+        <article class="card_03">
+            <div style="position:relative;width:100%;height:100%;">
+                <div class="dark_back"></div>
+                <div style="position:absolute;width:100%;height:100%;display:flex;justify-content:center;align-items:center;">
+                    <div class="evaluate_area">
+                        <div class="card_switch_03_back" style="float:right;cursor:pointer;"><img src="/static/image/バックスペースのアイコン素材.png" 
+                            onmouseover="this.src='/static/image/バックスペースのアイコン素材2.png'"
+                            onmouseout="this.src='/static/image/バックスペースのアイコン素材.png'">
+                        </div>
+                        <div class="hyouka">
+                            <input id="hoshi1" type="radio" name="hoshi" value="5" />
+                            <label for="hoshi1">★</label>
+                            <input id="hoshi2" type="radio" name="hoshi" value="4" />
+                            <label for="hoshi2">★</label>
+                            <input id="hoshi3" type="radio" name="hoshi" value="3" />
+                            <label for="hoshi3">★</label>
+                            <input id="hoshi4" type="radio" name="hoshi" value="2" />
+                            <label for="hoshi4">★</label>
+                            <input id="hoshi5" type="radio" name="hoshi" value="1" />
+                            <label for="hoshi5">★</label>
+                        </div>
+                        <p style="text-align:center;">年代を選択してください。</p>
+                        <div style="margin: 0 auto;width:70%;"><input type="hidden" class="single-slider" value="20" /></div>
+
+                        <p style="text-align:center;margin-top:3%;">性別を選択してください。</p>
+                        <div class="gender_group">
+                            <input type="radio" id="man" value="1"><label for="man" class="gender" style="margin:1%;"><img src="/static/image/男マーク.png"></label>
+                            <input type="radio" id="woman" value="2"><label for="woman" class="gender" style="margin:1%;"><img src="/static/image/女マーク.png"></label>
+                        </div>
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-outline-primary">送信</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
     </div>
-    <div class="l-wrapper_01 is-surface" style="margin-right:1%;">
+    <div class="l-wrapper_01 is-surface is-surface_03" style="margin-right:1%;">
         <article class="card_01">
             <div class="card__header_01">
                 <figure class="card__thumbnail_01">
@@ -183,6 +263,10 @@
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
                 </form>
+                <div class="card_switch_03" style="margin-left:auto;cursor:pointer;"><img src="/static/image/星アイコン1.png" 
+                    onmouseover="this.src='/static/image/星アイコン2.png'"
+                    onmouseout="this.src='/static/image/星アイコン1.png'">
+                </div>
                 <div class="card_switch" style="margin-left:auto;cursor:pointer"><img src="/static/image/コメントアイコン.png">
                 </div>
             </div>
@@ -234,6 +318,42 @@
                 </form>
             </div>
         </article>
+        <article class="card_03">
+            <div style="position:relative;width:100%;height:100%;">
+                <div class="dark_back"></div>
+                <div style="position:absolute;width:100%;height:100%;display:flex;justify-content:center;align-items:center;">
+                    <div class="evaluate_area">
+                        <div class="card_switch_03_back" style="float:right;cursor:pointer;"><img src="/static/image/バックスペースのアイコン素材.png" 
+                            onmouseover="this.src='/static/image/バックスペースのアイコン素材2.png'"
+                            onmouseout="this.src='/static/image/バックスペースのアイコン素材.png'">
+                        </div>
+                        <div class="hyouka">
+                            <input id="hoshi1" type="radio" name="hoshi" value="5" />
+                            <label for="hoshi1">★</label>
+                            <input id="hoshi2" type="radio" name="hoshi" value="4" />
+                            <label for="hoshi2">★</label>
+                            <input id="hoshi3" type="radio" name="hoshi" value="3" />
+                            <label for="hoshi3">★</label>
+                            <input id="hoshi4" type="radio" name="hoshi" value="2" />
+                            <label for="hoshi4">★</label>
+                            <input id="hoshi5" type="radio" name="hoshi" value="1" />
+                            <label for="hoshi5">★</label>
+                        </div>
+                        <p style="text-align:center;">年代を選択してください。</p>
+                        <div style="margin: 0 auto;width:70%;"><input type="hidden" class="single-slider" value="20" /></div>
+
+                        <p style="text-align:center;margin-top:3%;">性別を選択してください。</p>
+                        <div class="gender_group">
+                            <input type="radio" id="man" value="1"><label for="man" class="gender" style="margin:1%;"><img src="/static/image/男マーク.png"></label>
+                            <input type="radio" id="woman" value="2"><label for="woman" class="gender" style="margin:1%;"><img src="/static/image/女マーク.png"></label>
+                        </div>
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-outline-primary">送信</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
     </div>
 </div>
 <div id="map" style="margin-top: 100px;"></div>
@@ -251,4 +371,5 @@
     async defer></script>
 <script src="{% static 'js/rootDisplay.js' %}"></script>
 <script src="{% static 'js/card.js' %}"></script>
+<script src="{% static 'js/jquery.range.js' %}"></script>
 {% endblock %}
