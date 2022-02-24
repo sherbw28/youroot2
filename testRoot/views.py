@@ -1,8 +1,8 @@
 from pickle import FALSE
 from unicodedata import name
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Play, Eat, TypeOfPlace, PrefeCode, Atmosphere, SaveRoot, KeepRoot, CommentDetail
-from .forms import PlayForm, EatForm, TypeOfPlaceForm, SaveRootForm, KeepRootForm, CommentForm
+from .models import Play, Eat, TypeOfPlace, PrefeCode, Atmosphere, SaveRoot, KeepRoot, CommentDetail, Evaluation
+from .forms import PlayForm, EatForm, TypeOfPlaceForm, SaveRootForm, KeepRootForm, CommentForm, EvaluationForm
 import random
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -181,6 +181,7 @@ def detail(request, id):
         "author": request.user,
     }
     form = CommentForm(initial=initial_dict)
+    form_evaluation = EvaluationForm()
     comment1 = CommentDetail.objects.filter(comment_place=root.first).order_by('-created_at')
     comment2 = CommentDetail.objects.filter(comment_place=root.second).order_by('-created_at')
     comment3 = CommentDetail.objects.filter(comment_place=root.third).order_by('-created_at')
@@ -200,6 +201,7 @@ def detail(request, id):
         'len_comment1':len_comment1,
         'len_comment2':len_comment2,
         'len_comment3':len_comment3,
+        'form_evaluation':form_evaluation,
     }
     return render(request, 'testRoot/detail.html', contents)
 
@@ -229,6 +231,16 @@ def savecomment(request):
             post = form.save(commit=False)
             post.save()
             # return redirect('index')
+            return redirect(request.META['HTTP_REFERER'])
+    else:
+        return redirect('index')
+    
+def saveevaluation(request):
+    if request.method == 'POST':
+        form = EvaluationForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
             return redirect(request.META['HTTP_REFERER'])
     else:
         return redirect('index')

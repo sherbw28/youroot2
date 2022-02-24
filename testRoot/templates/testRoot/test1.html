@@ -50,15 +50,16 @@
             {% csrf_token %}
             <!-- {{keepForm.as_p}} -->
             <p>
-                <div style="margin-top:5%;"></div>
-                <input type="text" name="name" class="form-control mx-auto" placeholder="ルート名" maxlength="255" required=""
-                    id="id_name"style="width:95%;height:84px;">
+            <div style="margin-top:5%;"></div>
+            <input type="text" name="name" class="form-control mx-auto" placeholder="ルート名" maxlength="255" required=""
+                id="id_name" style="width:95%;height:84px;">
 
 
-                <input type="hidden" name="first" value="{{first_id}}" class="form-control" placeholder="first" id="first"><input
-                    type="hidden" name="second" value="{{second_id}}" class="form-control" placeholder="second" id="second"><input
-                    type="hidden" name="third" value="{{third_id}}" class="form-control" placeholder="third" id="third"><input
-                    type="hidden" name="author" value="{{author}}" class="form-control" placeholder="userName" id="author1">
+            <input type="hidden" name="first" value="{{first_id}}" class="form-control" placeholder="first"
+                id="first"><input type="hidden" name="second" value="{{second_id}}" class="form-control"
+                placeholder="second" id="second"><input type="hidden" name="third" value="{{third_id}}"
+                class="form-control" placeholder="third" id="third"><input type="hidden" name="author"
+                value="{{author}}" class="form-control" placeholder="userName" id="author1">
 
             </p>
             <div style="margin-top:5%;"></div>
@@ -85,4 +86,5 @@
     async defer></script>
 <script src="{% static 'js/rootDisplay.js' %}"></script>
 <script src="{% static 'js/saveRoot.js' %}"></script>
+<script src="{% static 'js/card.js' %}"></script>
 {% endblock %}

@@ -29,9 +29,9 @@
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
                 </form>
-                <div class="card_switch_03" style="margin-left:auto;cursor:pointer;"><img src="/static/image/星アイコン1.png" 
-                    onmouseover="this.src='/static/image/星アイコン2.png'"
-                    onmouseout="this.src='/static/image/星アイコン1.png'">
+                <div class="card_switch_03" style="margin-left:auto;cursor:pointer;"><img src="/static/image/星アイコン1.png"
+                        onmouseover="this.src='/static/image/星アイコン2.png'"
+                        onmouseout="this.src='/static/image/星アイコン1.png'">
                 </div>
                 <div class="card_switch" style="margin-left:auto;cursor:pointer"><img src="/static/image/コメントアイコン.png">
                 </div>
@@ -69,7 +69,6 @@
                 <form action="{% url 'savecomment' %}" method="post">
                     <!-- １個目 -->
                     {% csrf_token %}
-                    <!-- {{form.as_p}} -->
                     <p>
                         <input type="text" name="comment" class="form-control" placeholder="コメント" maxlength="255"
                             required="" id="id_comment">
@@ -87,35 +86,50 @@
         <article class="card_03">
             <div style="position:relative;width:100%;height:100%;">
                 <div class="dark_back"></div>
-                <div style="position:absolute;width:100%;height:100%;display:flex;justify-content:center;align-items:center;">
+                <div
+                    style="position:absolute;width:100%;height:100%;display:flex;justify-content:center;align-items:center;">
                     <div class="evaluate_area">
-                        <div class="card_switch_03_back" style="float:right;cursor:pointer;"><img src="/static/image/バックスペースのアイコン素材.png" 
-                            onmouseover="this.src='/static/image/バックスペースのアイコン素材2.png'"
-                            onmouseout="this.src='/static/image/バックスペースのアイコン素材.png'">
+                        <div class="card_switch_03_back" style="float:right;cursor:pointer;"><img
+                                src="/static/image/バックスペースのアイコン素材.png"
+                                onmouseover="this.src='/static/image/バックスペースのアイコン素材2.png'"
+                                onmouseout="this.src='/static/image/バックスペースのアイコン素材.png'">
                         </div>
-                        <div class="hyouka">
-                            <input id="hoshi1" type="radio" name="hoshi" value="5" />
-                            <label for="hoshi1">★</label>
-                            <input id="hoshi2" type="radio" name="hoshi" value="4" />
-                            <label for="hoshi2">★</label>
-                            <input id="hoshi3" type="radio" name="hoshi" value="3" />
-                            <label for="hoshi3">★</label>
-                            <input id="hoshi4" type="radio" name="hoshi" value="2" />
-                            <label for="hoshi4">★</label>
-                            <input id="hoshi5" type="radio" name="hoshi" value="1" />
-                            <label for="hoshi5">★</label>
-                        </div>
-                        <p style="text-align:center;">年代を選択してください。</p>
-                        <div style="margin: 0 auto;width:70%;"><input type="hidden" class="single-slider" value="20" /></div>
-
-                        <p style="text-align:center;margin-top:3%;">性別を選択してください。</p>
-                        <div class="gender_group">
-                            <input type="radio" id="man" value="1"><label for="man" class="gender" style="margin:1%;"><img src="/static/image/男マーク.png"></label>
-                            <input type="radio" id="woman" value="2"><label for="woman" class="gender" style="margin:1%;"><img src="/static/image/女マーク.png"></label>
-                        </div>
-                        <div style="text-align: center;">
-                            <button type="submit" class="btn btn-outline-primary">送信</button>
-                        </div>
+                        <!-- 評価１個目 -->
+                        <form action="{% url 'saveevaluation' %}" method="post">
+                            {% csrf_token %}
+                            <div class="hyouka">
+                                <input id="hoshi1" type="radio" name="rate" required="" value="5" />
+                                <label for="hoshi1">★</label>
+                                <input id="hoshi2" type="radio" name="rate" required="" value="4" />
+                                <label for="hoshi2">★</label>
+                                <input id="hoshi3" type="radio" name="rate" required="" value="3" />
+                                <label for="hoshi3">★</label>
+                                <input id="hoshi4" type="radio" name="rate" required="" value="2" />
+                                <label for="hoshi4">★</label>
+                                <input id="hoshi5" type="radio" name="rate" required="" value="1" />
+                                <label for="hoshi5">★</label>
+                            </div>
+                            <p style="text-align:center;">年代を選択してください。</p>
+                            <div style="margin: 0 auto;width:70%;"><input type="hidden" name="age" required=""
+                                    id="id_age" class="single-slider" value="20" /></div>
+                            <p style="text-align:center;margin-top:3%;">性別を選択してください。</p>
+                            <div class="gender_group">
+                                <input type="radio" id="man" value="male" name="gender" required=""><label for="man"
+                                    class="gender" style="margin:1%;"><img src="/static/image/男マーク.png"></label>
+                                <input type="radio" id="woman" value="female" name="gender" required=""><label
+                                    for="woman" class="gender" style="margin:1%;"><img
+                                        src="/static/image/女マーク.png"></label>
+                            </div>
+                            <p>
+                                <input type="hidden" name="place" class="form-control" required="" id="id_place"
+                                    value="{{detail1}}">
+                                <input name="author" type="hidden" class="form-control" placeholder="userName"
+                                    id="author1" required="" value="{{id}}">
+                            </p>
+                            <div style="text-align: center;">
+                                <button type="submit" class="btn btn-outline-primary">送信</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -146,9 +160,9 @@
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
                 </form>
-                <div class="card_switch_03" style="margin-left:auto;cursor:pointer;"><img src="/static/image/星アイコン1.png" 
-                    onmouseover="this.src='/static/image/星アイコン2.png'"
-                    onmouseout="this.src='/static/image/星アイコン1.png'">
+                <div class="card_switch_03" style="margin-left:auto;cursor:pointer;"><img src="/static/image/星アイコン1.png"
+                        onmouseover="this.src='/static/image/星アイコン2.png'"
+                        onmouseout="this.src='/static/image/星アイコン1.png'">
                 </div>
                 <div class="card_switch" style="margin-left:auto;cursor:pointer"><img src="/static/image/コメントアイコン.png">
                 </div>
@@ -181,12 +195,11 @@
             </div>
             <div class="mycomment" style="margin:2%;height:13%;">
                 <!-- <div class="comment-area">
-                    <p></p>
-                </div> -->
+                            <p></p>
+                        </div> -->
                 <form action="{% url 'savecomment' %}" method="post">
                     <!-- 2個目 -->
                     {% csrf_token %}
-                    <!-- {{form.as_p}} -->
                     <p>
                         <input type="text" name="comment" class="form-control" placeholder="コメント" maxlength="255"
                             required="" id="id_comment">
@@ -204,35 +217,50 @@
         <article class="card_03">
             <div style="position:relative;width:100%;height:100%;">
                 <div class="dark_back"></div>
-                <div style="position:absolute;width:100%;height:100%;display:flex;justify-content:center;align-items:center;">
+                <div
+                    style="position:absolute;width:100%;height:100%;display:flex;justify-content:center;align-items:center;">
                     <div class="evaluate_area">
-                        <div class="card_switch_03_back" style="float:right;cursor:pointer;"><img src="/static/image/バックスペースのアイコン素材.png" 
-                            onmouseover="this.src='/static/image/バックスペースのアイコン素材2.png'"
-                            onmouseout="this.src='/static/image/バックスペースのアイコン素材.png'">
+                        <div class="card_switch_03_back" style="float:right;cursor:pointer;"><img
+                                src="/static/image/バックスペースのアイコン素材.png"
+                                onmouseover="this.src='/static/image/バックスペースのアイコン素材2.png'"
+                                onmouseout="this.src='/static/image/バックスペースのアイコン素材.png'">
                         </div>
-                        <div class="hyouka">
-                            <input id="hoshi1" type="radio" name="hoshi" value="5" />
-                            <label for="hoshi1">★</label>
-                            <input id="hoshi2" type="radio" name="hoshi" value="4" />
-                            <label for="hoshi2">★</label>
-                            <input id="hoshi3" type="radio" name="hoshi" value="3" />
-                            <label for="hoshi3">★</label>
-                            <input id="hoshi4" type="radio" name="hoshi" value="2" />
-                            <label for="hoshi4">★</label>
-                            <input id="hoshi5" type="radio" name="hoshi" value="1" />
-                            <label for="hoshi5">★</label>
-                        </div>
-                        <p style="text-align:center;">年代を選択してください。</p>
-                        <div style="margin: 0 auto;width:70%;"><input type="hidden" class="single-slider" value="20" /></div>
-
-                        <p style="text-align:center;margin-top:3%;">性別を選択してください。</p>
-                        <div class="gender_group">
-                            <input type="radio" id="man" value="1"><label for="man" class="gender" style="margin:1%;"><img src="/static/image/男マーク.png"></label>
-                            <input type="radio" id="woman" value="2"><label for="woman" class="gender" style="margin:1%;"><img src="/static/image/女マーク.png"></label>
-                        </div>
-                        <div style="text-align: center;">
-                            <button type="submit" class="btn btn-outline-primary">送信</button>
-                        </div>
+                        <!-- 評価2個目 -->
+                        <form action="{% url 'saveevaluation' %}" method="post">
+                            {% csrf_token %}
+                            <div class="hyouka">
+                                <input id="hoshi11" type="radio" name="rate" required="" value="5" />
+                                <label for="hoshi11">★</label>
+                                <input id="hoshi22" type="radio" name="rate" required="" value="4" />
+                                <label for="hoshi22">★</label>
+                                <input id="hoshi33" type="radio" name="rate" required="" value="3" />
+                                <label for="hoshi33">★</label>
+                                <input id="hoshi44" type="radio" name="rate" required="" value="2" />
+                                <label for="hoshi44">★</label>
+                                <input id="hoshi55" type="radio" name="rate" required="" value="1" />
+                                <label for="hoshi55">★</label>
+                            </div>
+                            <p style="text-align:center;">年代を選択してください。</p>
+                            <div style="margin: 0 auto;width:70%;"><input type="hidden" name="age" required=""
+                                    id="id_age" class="single-slider" value="20" /></div>
+                            <p style="text-align:center;margin-top:3%;">性別を選択してください。</p>
+                            <div class="gender_group">
+                                <input type="radio" id="man2" value="male" name="gender" required=""><label for="man2"
+                                    class="gender" style="margin:1%;"><img src="/static/image/男マーク.png"></label>
+                                <input type="radio" id="woman2" value="female" name="gender" required=""><label
+                                    for="woman2" class="gender" style="margin:1%;"><img
+                                        src="/static/image/女マーク.png"></label>
+                            </div>
+                            <p>
+                                <input type="hidden" name="place" class="form-control" required="" id="id_place"
+                                    value="{{detail2}}">
+                                <input name="author" type="hidden" class="form-control" placeholder="userName"
+                                    id="author1" required="" value="{{id}}">
+                            </p>
+                            <div style="text-align: center;">
+                                <button type="submit" class="btn btn-outline-primary">送信</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -263,9 +291,9 @@
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
                 </form>
-                <div class="card_switch_03" style="margin-left:auto;cursor:pointer;"><img src="/static/image/星アイコン1.png" 
-                    onmouseover="this.src='/static/image/星アイコン2.png'"
-                    onmouseout="this.src='/static/image/星アイコン1.png'">
+                <div class="card_switch_03" style="margin-left:auto;cursor:pointer;"><img src="/static/image/星アイコン1.png"
+                        onmouseover="this.src='/static/image/星アイコン2.png'"
+                        onmouseout="this.src='/static/image/星アイコン1.png'">
                 </div>
                 <div class="card_switch" style="margin-left:auto;cursor:pointer"><img src="/static/image/コメントアイコン.png">
                 </div>
@@ -298,19 +326,18 @@
             </div>
             <div class="mycomment" style="margin:2%;height:13%;">
                 <!-- <div class="comment-area">
-                    <p></p>
-                </div> -->
+                            <p></p>
+                        </div> -->
                 <form action="{% url 'savecomment' %}" method="post">
                     <!-- 3個目 -->
                     {% csrf_token %}
-                    <!-- {{form.as_p}} -->
                     <p>
                         <input type="text" name="comment" class="form-control" placeholder="コメント" maxlength="255"
                             required="" id="id_comment">
-                        <input type="hidden" name="comment_place" value="{{detail3}}" class="form-control"
-                            required="" id="id_comment_place">
-                        <input type="hidden" name="author" value="{{id}}" class="form-control"
-                            placeholder="userName" id="author1">
+                        <input type="hidden" name="comment_place" value="{{detail3}}" class="form-control" required=""
+                            id="id_comment_place">
+                        <input type="hidden" name="author" value="{{id}}" class="form-control" placeholder="userName"
+                            id="author1">
                     </p>
                     <div style="text-align: center;">
                         <button type="submit" class="btn btn-outline-primary">送信</button>
@@ -321,35 +348,50 @@
         <article class="card_03">
             <div style="position:relative;width:100%;height:100%;">
                 <div class="dark_back"></div>
-                <div style="position:absolute;width:100%;height:100%;display:flex;justify-content:center;align-items:center;">
+                <div
+                    style="position:absolute;width:100%;height:100%;display:flex;justify-content:center;align-items:center;">
                     <div class="evaluate_area">
-                        <div class="card_switch_03_back" style="float:right;cursor:pointer;"><img src="/static/image/バックスペースのアイコン素材.png" 
-                            onmouseover="this.src='/static/image/バックスペースのアイコン素材2.png'"
-                            onmouseout="this.src='/static/image/バックスペースのアイコン素材.png'">
+                        <div class="card_switch_03_back" style="float:right;cursor:pointer;"><img
+                                src="/static/image/バックスペースのアイコン素材.png"
+                                onmouseover="this.src='/static/image/バックスペースのアイコン素材2.png'"
+                                onmouseout="this.src='/static/image/バックスペースのアイコン素材.png'">
                         </div>
-                        <div class="hyouka">
-                            <input id="hoshi1" type="radio" name="hoshi" value="5" />
-                            <label for="hoshi1">★</label>
-                            <input id="hoshi2" type="radio" name="hoshi" value="4" />
-                            <label for="hoshi2">★</label>
-                            <input id="hoshi3" type="radio" name="hoshi" value="3" />
-                            <label for="hoshi3">★</label>
-                            <input id="hoshi4" type="radio" name="hoshi" value="2" />
-                            <label for="hoshi4">★</label>
-                            <input id="hoshi5" type="radio" name="hoshi" value="1" />
-                            <label for="hoshi5">★</label>
-                        </div>
-                        <p style="text-align:center;">年代を選択してください。</p>
-                        <div style="margin: 0 auto;width:70%;"><input type="hidden" class="single-slider" value="20" /></div>
-
-                        <p style="text-align:center;margin-top:3%;">性別を選択してください。</p>
-                        <div class="gender_group">
-                            <input type="radio" id="man" value="1"><label for="man" class="gender" style="margin:1%;"><img src="/static/image/男マーク.png"></label>
-                            <input type="radio" id="woman" value="2"><label for="woman" class="gender" style="margin:1%;"><img src="/static/image/女マーク.png"></label>
-                        </div>
-                        <div style="text-align: center;">
-                            <button type="submit" class="btn btn-outline-primary">送信</button>
-                        </div>
+                        <!-- 評価3個目 -->
+                        <form action="{% url 'saveevaluation' %}" method="post">
+                            {% csrf_token %}
+                            <div class="hyouka">
+                                <input id="hoshi111" type="radio" name="rate" required="" value="5" />
+                                <label for="hoshi111">★</label>
+                                <input id="hoshi222" type="radio" name="rate" required="" value="4" />
+                                <label for="hoshi222">★</label>
+                                <input id="hoshi333" type="radio" name="rate" required="" value="3" />
+                                <label for="hoshi333">★</label>
+                                <input id="hoshi444" type="radio" name="rate" required="" value="2" />
+                                <label for="hoshi444">★</label>
+                                <input id="hoshi555" type="radio" name="rate" required="" value="1" />
+                                <label for="hoshi555">★</label>
+                            </div>
+                            <p style="text-align:center;">年代を選択してください。</p>
+                            <div style="margin: 0 auto;width:70%;"><input type="hidden" name="age" required=""
+                                    id="id_age" class="single-slider" value="20" /></div>
+                            <p style="text-align:center;margin-top:3%;">性別を選択してください。</p>
+                            <div class="gender_group">
+                                <input type="radio" id="man3" value="male" name="gender" required=""><label for="man3"
+                                    class="gender" style="margin:1%;"><img src="/static/image/男マーク.png"></label>
+                                <input type="radio" id="woman3" value="female" name="gender" required=""><label
+                                    for="woman3" class="gender" style="margin:1%;"><img
+                                        src="/static/image/女マーク.png"></label>
+                            </div>
+                            <p>
+                                <input type="hidden" name="place" class="form-control" required="" id="id_place"
+                                    value="{{detail3}}">
+                                <input name="author" type="hidden" class="form-control" placeholder="userName"
+                                    id="author1" required="" value="{{id}}">
+                            </p>
+                            <div style="text-align: center;">
+                                <button type="submit" class="btn btn-outline-primary">送信</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
