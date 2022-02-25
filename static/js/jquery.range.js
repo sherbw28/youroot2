@@ -406,7 +406,7 @@ $('.single-slider').jRange({
     step: 10,
     scale: [10,20,30,40,50,60,70,80,90],
     format: '%s',
-    width: 350,
+    width: 280,
     showLabels: true,
     snap: true
 });
