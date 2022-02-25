@@ -60,5 +60,13 @@ a:hover {
 
 li {
   list-style: none;
-  opacity: 0.7;
+}
+
+.pagination {
+  color: #3c4c46;
+}
+
+.pagination:hover {
+  font-weight: bold;
+  color: #3c4c46;
 }

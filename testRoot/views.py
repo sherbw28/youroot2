@@ -174,10 +174,20 @@ def user(request, id):
         page = request.GET.get('page')
         place = p.get_page(page)
         
+        q = Paginator(KeepRoot.objects.order_by('-created_at').filter(author=request.user), 3)
+        qpage = request.GET.get('rootPage')
+        root = q.get_page(qpage)
+        rangeee = list(range(root.paginator.num_pages))
+        
+        rangee = list(range(place.paginator.num_pages))
+        
         content = {
             'lists': lists,
             'lists_place': lists_place,
             'place':place,
+            'root':root,
+            'rangee':rangee,
+            'rangeee':rangeee,
         }
         return render(request, 'testRoot/user.html', content)
 
