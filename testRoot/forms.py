@@ -2,7 +2,7 @@ from dataclasses import fields
 from operator import attrgetter
 from tkinter import Widget
 from django import forms
-from .models import Play, Eat, TypeOfPlace, City, PrefeCode, SaveRoot, KeepRoot, CommentDetail, Evaluation
+from .models import Play, Eat, TypeOfPlace, City, PrefeCode, SaveRoot, KeepRoot, CommentDetail, Evaluation, GoodCheck
 
 class PlayForm(forms.ModelForm):
     class Meta:
@@ -102,5 +102,14 @@ class EvaluationForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'userName', 'id': 'author1'}),
+            'place': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+        
+class GoodCheckForm(forms.ModelForm):
+    class Meta:
+        model = GoodCheck
+        fields = '__all__'
+        widgets = {
+            'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'userName'}),
             'place': forms.TextInput(attrs={'class': 'form-control'}),
         }

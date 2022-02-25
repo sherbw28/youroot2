@@ -147,3 +147,10 @@ class Evaluation(models.Model):
     
     def __str__(self):
         return self.place.name
+    
+class GoodCheck(models.Model):
+    author = models.ForeignKey(get_user_model(),on_delete=models.CASCADE, null=True)
+    place = models.ForeignKey(TypeOfPlace, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.place.name

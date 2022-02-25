@@ -1,8 +1,8 @@
 from pickle import FALSE
 from unicodedata import name
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Play, Eat, TypeOfPlace, PrefeCode, Atmosphere, SaveRoot, KeepRoot, CommentDetail, Evaluation
-from .forms import PlayForm, EatForm, TypeOfPlaceForm, SaveRootForm, KeepRootForm, CommentForm, EvaluationForm
+from .models import Play, Eat, TypeOfPlace, PrefeCode, Atmosphere, SaveRoot, KeepRoot, CommentDetail, Evaluation, GoodCheck
+from .forms import PlayForm, EatForm, TypeOfPlaceForm, SaveRootForm, KeepRootForm, CommentForm, EvaluationForm, GoodCheckForm
 import random
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -182,6 +182,7 @@ def detail(request, id):
     }
     form = CommentForm(initial=initial_dict)
     form_evaluation = EvaluationForm()
+    form_good = GoodCheckForm()
     comment1 = CommentDetail.objects.filter(comment_place=root.first).order_by('-created_at')
     comment2 = CommentDetail.objects.filter(comment_place=root.second).order_by('-created_at')
     comment3 = CommentDetail.objects.filter(comment_place=root.third).order_by('-created_at')
@@ -202,11 +203,22 @@ def detail(request, id):
         'len_comment2':len_comment2,
         'len_comment3':len_comment3,
         'form_evaluation':form_evaluation,
+        'form_good':form_good,
     }
     return render(request, 'testRoot/detail.html', contents)
 
 def like(request, id):
     if request.method == 'POST':
+        good_form = GoodCheckForm(request.POST)
+        goodCheck = good_form.save(commit=False)
+        good_list = GoodCheck.objects.filter(place=goodCheck.place)
+        
+        if len(good_list) != 0:
+            for list in good_list:
+                if list.author == goodCheck.author:
+                    return redirect(request.META['HTTP_REFERER'])
+                
+        goodCheck.save()
         place = get_object_or_404(TypeOfPlace, pk=id)
         place.good += 1
         place.save()
