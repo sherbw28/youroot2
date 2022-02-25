@@ -27,7 +27,7 @@
             <div class="card__footer_01">
                 <form action="{% url 'like' content.first.id%}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
+                    <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i>&nbsp;{{content.first.good}}</button>
                 </form>
                 <div class="card_switch_03" style="margin-left:auto;cursor:pointer;"><img src="/static/image/星アイコン1.png"
                         onmouseover="this.src='/static/image/星アイコン2.png'"
@@ -158,7 +158,7 @@
             <div class="card__footer_01">
                 <form action="{% url 'like' content.second.id%}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
+                    <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i>&nbsp;{{content.second.good}}</button>
                 </form>
                 <div class="card_switch_03" style="margin-left:auto;cursor:pointer;"><img src="/static/image/星アイコン1.png"
                         onmouseover="this.src='/static/image/星アイコン2.png'"
@@ -289,7 +289,7 @@
             <div class="card__footer_01">
                 <form action="{% url 'like' content.third.id%}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
+                    <button type="submit" class="btn btn-outline-danger"><i class="bi bi-heart"></i>&nbsp;{{content.third.good}}</button>
                 </form>
                 <div class="card_switch_03" style="margin-left:auto;cursor:pointer;"><img src="/static/image/星アイコン1.png"
                         onmouseover="this.src='/static/image/星アイコン2.png'"

@@ -44,7 +44,7 @@ http://opensource.org/licenses/mit-license.php
   display: inline-block;
   position: relative;
   font-family: 'Dosis', sans-serif;
-  color: #3c4c46;
+  /* color: #3c4c46; */
 }
 
 .wrapper {
@@ -55,10 +55,6 @@ http://opensource.org/licenses/mit-license.php
 }
 
 a:hover {
-    color: #3c4c46;
-}
-
-a {
     color: #3c4c46;
 }
 
