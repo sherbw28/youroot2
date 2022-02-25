@@ -6,6 +6,7 @@ from .forms import PlayForm, EatForm, TypeOfPlaceForm, SaveRootForm, KeepRootFor
 import random
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 
 def index(request):
     return render(request, 'testRoot/index.html')
@@ -168,9 +169,15 @@ def user(request, id):
     else:
         lists = KeepRoot.objects.order_by('-created_at').filter(author=request.user)
         lists_place = TypeOfPlace.objects.order_by('-created_at').filter(author=request.user)
+        
+        p = Paginator(TypeOfPlace.objects.order_by('-created_at').filter(author=request.user), 5)
+        page = request.GET.get('page')
+        place = p.get_page(page)
+        
         content = {
             'lists': lists,
-            'lists_place': lists_place
+            'lists_place': lists_place,
+            'place':place,
         }
         return render(request, 'testRoot/user.html', content)
 
