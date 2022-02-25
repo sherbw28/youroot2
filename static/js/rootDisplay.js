@@ -12,7 +12,7 @@ function initMap() {
     // マップの生成
     var map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(document.getElementById('ido1').value, document.getElementById('keido1').value), // マップの中心
-        zoom: 10 // ズームレベル
+        zoom: 15 // ズームレベル
     });
 
     var d = new google.maps.DirectionsService(); // ルート検索オブジェクト
