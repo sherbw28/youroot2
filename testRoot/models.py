@@ -53,6 +53,28 @@ class TypeOfPlace(models.Model):
     def __str__(self):
         return self.name
     
+class TokyoCity(models.Model):
+    TYPE_CHOICE = (
+        ('eat','ご飯'),
+        ('cafe','カフェ'),
+        ('play','観光'),
+    )
+    type = models.CharField(max_length=255, choices=TYPE_CHOICE)
+    name = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
+    city = models.CharField(max_length=255, null=True)
+    ido = models.FloatField(null=True)
+    keido = models.FloatField(null=True)
+    image = models.ImageField(upload_to='images/', null=True)
+    author = models.ForeignKey(get_user_model(),on_delete=models.PROTECT, null=True)
+    good = models.IntegerField(null=True, default=0)
+    comment = models.CharField(max_length=500, null=True)
+    
+    def __str__(self):
+        return self.name
+    
 class CommentDetail(models.Model):
     comment = models.CharField(max_length=255)
     comment_place = models.ForeignKey(TypeOfPlace, on_delete=models.PROTECT)

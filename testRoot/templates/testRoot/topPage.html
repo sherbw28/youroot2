@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>寿司は粋</title>
@@ -29,7 +29,11 @@
 <body id="page-top">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'topPage1' %}">ルート検索コンシェルジュ</a>
+            {% if user.is_authenticated %}
+            <a class="navbar-brand" href="{% url 'index' %}">YOUROOT</a>
+            {% else %}
+            <a class="navbar-brand" href="{% url 'topPage' %}">YOUROOT</a>
+            {% endif %}
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -40,6 +44,9 @@
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a href="{% url 'user' user.id%}" class="nav-link">{{user}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="wrapper"><a href="{% url 'test2' %}" class="nav-link effect-box">おすすめ登録!</a></div>
                     </li>
                     <li class="nav-item">
                         <a href='{% url "logout" %}' class="'logout nav-link">logout</a>
@@ -60,35 +67,37 @@
         <div class="container">
             <div class="masthead-subheading">遊びの幅を広げよう!</div>
             <div class="masthead-heading text-uppercase">FIND NEW PLACE</div>
+            {% if user.is_authenticated %}
             <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'index' %}">Get Start!</a>
+            {% else %}
+            <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'login' %}">Get Start!</a>
+            {% endif %}
         </div>
     </header>
     <!-- Services-->
-    <section class="page-section" id="services">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">サービス</h2>
+    <div class="container page-section" style="color: #3c4c46; text-align: center;">
+        <h1 style="margin-bottom: 50px;">What You Can Do</h1>
+        <div class="row row-cols-auto" style="text-align: center;">
+            <div class="col col_topPage" style="margin: 0 auto;">
+                <img src="{% static 'image/search.png' %}" width="80px" class="margin_topPage">
+                <h2 style="font-size: 32px;">1&nbsp;自動でルートを検索</h2>
+                <p class="margin_topPage">Search Where You Need To Go</p>
+                <p class="margin_topPage">行きたい雰囲気、場所を設定してみよう<br>自動でランダムにルートを検索してくれます。</p>
             </div>
-            <div class="row text-center">
-                <div class="col-md-6">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-search fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="my-3">自動でルートを検索</h4>
-                    <p class="text-muted">自動でその日の気分や地域などの条件を指定してルートを検索してくれます</p>
-                </div>
-                <div class="col-md-6">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-heart fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="my-3">お気に入りの場所を教えてあげよう</h4>
-                    <p class="text-muted">あなたのおすすめの場所を登録して他の人のルートにも表示されるようにしよう！</p>
-                </div>
+            <div class="col col_topPage" style="margin: 0 auto;">
+                <img src="{% static 'image/heart.png' %}" width="80px" class="margin_topPage">
+                <h2 style="font-size: 32px;">2&nbsp;お気に入りを見つけよう</h2>
+                <p class="margin_topPage">Find You Favorite Place</p>
+                <p class="margin_topPage">いいと思った場所にいいねを押してみよう<br>あなたのオススメの場所を他の人にも紹介してあげてね。</p>
+            </div>
+            <div class="col col_topPage" style="margin: 0 auto;">
+                <img src="{% static 'image/save.png' %}" width="80px" class="margin_topPage">
+                <h2 style="font-size: 32px;">3&nbsp;好きなルートを保存</h2>
+                <p class="margin_topPage">Save The Root You Want To Go</p>
+                <p class="margin_topPage">行ってみたい場所を保存してみよう<br>あとで保存したルートを見返すことができます。</p>
             </div>
         </div>
-    </section>
+    </div>
 
     <footer class="footer py-4">
         <div class="container">
@@ -99,8 +108,8 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>

@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
     <!-- Line Awesome CDN Link -->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
-    <title>寿司は粋</title>
+    <title>刺身は粋</title>
 
     <!-- <link rel="icon" type="image/x-icon" href="assets/favicon.ico" /> -->
 
@@ -42,7 +42,7 @@
             {% if user.is_authenticated %}
             <div class="wrapper"><a class="navbar-brand effect-box" href="{% url 'index' %}">YOUROOT</a></div>
             {% else %}
-            <div class="wrapper"><a class="navbar-brand effect-box" href="{% url 'topPage1' %}">YOUROOT</a></div>
+            <div class="wrapper"><a class="navbar-brand effect-box" href="{% url 'topPage' %}">YOUROOT</a></div>
             {% endif %}
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,6 +60,9 @@
                     </li>
                     <li class="nav-item">
                         <div class="wrapper"><a href='{% url "logout" %}' class="logout nav-link effect-box">logout</a></div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="wrapper"><a href='{% url "test3" %}' class="logout nav-link effect-box">test3</a></div>
                     </li>
                     {% else %}
                     <li class="nav-item">

@@ -1,8 +1,8 @@
 from pickle import FALSE
 from unicodedata import name
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Play, Eat, TypeOfPlace, PrefeCode, Atmosphere, SaveRoot, KeepRoot, CommentDetail, Evaluation, GoodCheck
-from .forms import PlayForm, EatForm, TypeOfPlaceForm, SaveRootForm, KeepRootForm, CommentForm, EvaluationForm, GoodCheckForm
+from .models import Play, Eat, TypeOfPlace, PrefeCode, Atmosphere, SaveRoot, KeepRoot, CommentDetail, Evaluation, GoodCheck, TokyoCity
+from .forms import PlayForm, EatForm, TypeOfPlaceForm, SaveRootForm, KeepRootForm, CommentForm, EvaluationForm, GoodCheckForm, TokyoCityForm
 import random
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -251,7 +251,7 @@ def topPage1(request):
     return render(request, 'testRoot/topPage1.html')
 
 def topIndex(request):
-    return render(request, 'testRoot/topPage1.html')
+    return render(request, 'testRoot/topPage.html')
 
 def savecomment(request):
     if request.method == 'POST':
@@ -273,6 +273,45 @@ def saveevaluation(request):
             return redirect(request.META['HTTP_REFERER'])
     else:
         return redirect('index')
+    
+def test3(request):
+    if request.method == "POST":
+        form = TokyoCityForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            check_ido = TokyoCity.objects.values_list('ido')
+            check_keido = TokyoCity.objects.values_list('keido')
+            post = form.save(commit=False)
+            for a_ido in check_ido:
+                for b_ido in a_ido:
+                    if b_ido == post.ido:
+                        for a_keido in check_keido:
+                            for b_keido in a_keido:
+                                if b_keido == post.keido:
+                                    initial_dict = {
+                                        'author': request.user,
+                                    }
+                                    form = TokyoCityForm(initial=initial_dict)
+                                    content = {
+                                        'content':'ごめんなさい！既にその場所は登録されています！',
+                                        'form':form,
+                                        'id': request.user.id,
+                                        'author': request.user,
+                                    }
+                                    return render(request, 'testRoot/test3.html', content)
+            post.save()
+            return redirect('index')
+    else:
+        initial_dict = {
+            'author': request.user,
+        }
+        form = TypeOfPlaceForm(initial=initial_dict)
+        content  = {
+            'form': form,
+            'id': request.user.id,
+            'author': request.user,
+        }
+    return render(request, 'testRoot/test3.html', content)
 
 # def test3(request):
 #     return render(request, 'testRoot/test3.html')

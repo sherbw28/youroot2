@@ -26,62 +26,37 @@
         <div style="margin:2%;height:90%;">
             <form method="post" class="form_test" style="text-align: center;" enctype="multipart/form-data">
                 {% csrf_token %}
-                <!-- {{ form.as_p }} -->
                 <p>
                     <label for="subsName1">名前:</label>
                     <input type="text" name="name" class="form-control" placeholder="name" id="subsName1"
                         maxlength="255" required="">
                 </p>
-                <div style="display:flex;">
-                    <p style="margin-left:4%;">
+                <div>
+                    <p>
                         <label for="id_type">種類:</label>
                         <select name="type" required="" id="id_type" class="form-select">
                             <option value="" selected="">---------</option>
-
                             <option value="eat">ご飯</option>
-
-                            <option value="play">遊び</option>
-
+                            <option value="cafe">カフェ</option>
+                            <option value="play">観光地</option>
                         </select>
                     </p>
-                    <p style="margin-left:auto;margin-right:auto;">
-                        <label for="id_atmosphere">雰囲気:</label>
-                        <select name="atmosphere" required="" id="id_atmosphere" class="form-select">
-                            <option value="" selected="">---------</option>
-
-                            <option value="1">一人で</option>
-
-                            <option value="2">賑やか</option>
-
-                            <option value="3">落ち着いた</option>
-
-                        </select>
-                    </p>
-                    <p style="margin-right:4%;">
-                        <label for="id_pref">所在地:</label>
-                        <select name="pref" required="" id="id_pref" class="form-select">
-                            <option value="">都道府県を選択して下さい</option>
-                        </select>
-                    </p>
+                    
                     <p>
-                        <label for="id_city">市町村:</label>
-                        <select name="city" maxlength="255" required="" id="id_city" class="form-select">
-                            <option value="">市区町村で絞り込む</option>
-                        </select>            
+                        <label for="id_city">所在地:</label>
+                        <select name="city" required="" id="id_city" class="form-select">
+                            <option value="">場所を選択してください</option>
+                        </select>
                     </p>
                 </div>
                 <p>
                     <label for="id_image">画像:</label>
-                    <input type="file" name="image" accept="image/*" required="" id="id_image">
-
-
+                    <input type="file" name="image" accept="image/*" required="" id="id_image" class="form-select">
                 </p>
                 <p>
                     <label for="id_comment">コメント:</label>
                     <textarea name="comment" cols="40" rows="10" class="form-control" placeholder="一言コメント!"
                         maxlength="500" required="" id="id_comment" style="height: 86px;resize:none;"></textarea>
-
-
                     <input type="hidden" name="address" class="form-control" placeholder="address" id="address1"><input
                         type="hidden" name="ido" class="form-control" placeholder="緯度" id="ido1"
                         value="35.6812405"><input type="hidden" name="keido" class="form-control" placeholder="経度"
@@ -120,13 +95,12 @@
         </article>
     </div>
 </div>
-<!-- {{form.as_p}} -->
 <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBekiDl6GcMzjHOAp0Y4PPzTZM-iGP_LBA&libraries=places&callback=init"
     async defer></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="{% static 'js/searchPosition.js' %}"></script>
-<script src="{% static 'js/prefecture.js' %}"></script>
+<script src="{% static 'js/searchPositionTokyo.js' %}"></script>
+<script src="{% static 'js/tokyoCity.js' %}"></script>
 <script>
 </script>
 {% endblock %}
