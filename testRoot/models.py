@@ -6,7 +6,6 @@ from django.conf import settings
 from django.forms import ChoiceField
 from django.utils import timezone
 from cgitb import text
-from tkinter import CASCADE
 from turtle import title
 from django.contrib.auth import get_user_model
 
