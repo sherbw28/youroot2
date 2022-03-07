@@ -1,0 +1,72 @@
+/*
+Copyright (c) 2014 Colloque Tsui
+Released under the MIT license
+http://opensource.org/licenses/mit-license.php
+*/
+.effect-box:after,
+.effect-box:before {
+	content: '';
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  height: 1.5em;
+  width: 100%;
+  /* margin-top: 10px; */
+  opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	
+}
+
+.effect-box:before {
+  border-left: 1px solid;
+  border-right: 1px solid;
+  -webkit-transform: scale(1,0);
+	transform: scale(1,0);
+}
+
+.effect-box:after {
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  -webkit-transform: scale(0,1);
+	transform: scale(0,1);
+}
+
+.effect-box:hover:after,
+.effect-box:hover:before {
+  opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.effect-box {
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  font-family: 'Dosis', sans-serif;
+  /* color: #3c4c46; */
+}
+
+.wrapper {
+  /* display: block; */
+  /* position: absolute; */
+  /* top: 50%; */
+  left:50%;
+}
+
+a:hover {
+    color: #3c4c46;
+}
+
+li {
+  list-style: none;
+}
+
+.pagination {
+  color: #3c4c46;
+}
+
+.pagination:hover {
+  font-weight: bold;
+  color: #3c4c46;
+}

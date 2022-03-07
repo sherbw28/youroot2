@@ -1,0 +1,72 @@
+.form_touroku{
+    width:45%;
+    background-color:#f5f5f5;
+    border:1px solid;
+    border-color:#dcdcdc;
+}
+.search_form{
+    margin-top:10%;
+}
+@media screen and (max-width:960px) {
+    .form_touroku{
+        width:90% !important;
+        margin-right:auto !important;
+    }
+    .test2_card{
+        width: 90% !important;
+        margin-right:auto !important;
+    }
+    .search_form{
+        margin-top:20% !important;
+    }
+}
+@media screen and (max-width:480px) {
+    .form_touroku{
+        width: 90% !important;
+        margin-right:auto !important;
+    }
+    .test2_card{
+        width:90% !important;
+        margin-right:auto !important;
+    }
+    .search_form{
+        margin-top:20% !important;
+    }
+}
+@media screen and (min-width:960px) {
+    .form_test{
+        height:90%;
+    }
+}
+.form_test{
+    height:90%;
+}
+.test2_card{
+    width:30%;
+    margin-right:7%;
+}
+
+.cp_iptxt {
+	width: 100%;
+    text-align:center;
+}
+.cp_iptxt input[type='text'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	/* color: #aaaaaa; */
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+.ef{
+    width:80%;
+
+}
+.ef input[type='text']:focus {
+	/* border: 1px solid #7fffd4; */
+	outline: none;
+	/* box-shadow: 0 0 5px 1px rgba(178, 230, 191, 0.5); */
+}

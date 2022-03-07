@@ -1,0 +1,315 @@
+/*--------------------------------------
+  カード型_01
+--------------------------------------*/
+.flexbox{
+    display: flex;
+    margin-left:2%;
+    
+  }
+
+@media screen and (max-width:960px) {
+  .flexbox{
+    display: block!important;
+  }
+  .l-wrapper_01{
+    margin-right:3%!important;
+  }
+  #map{
+    width:95%!important;
+    float:none!important;
+  }
+  #touroku{
+    margin-top:0!important;
+    margin-left:0!important;
+    float:none!important;
+  }
+}
+@media screen and (max-width:480px) {
+  .flexbox{
+    display:block!important;
+  }
+  .l-wrapper_01{
+    margin-right:3%!important;
+  }
+  #map{
+    width:95%!important;
+    float:none!important;
+  }
+  #touroku{
+    margin-top:0!important;
+    float:none!important;
+  }
+}
+
+  .abc{
+    margin-top:2%;
+    height:20px;
+    width:20px;
+    border-radius:50%;
+    text-align:center;
+    background:orangered;
+    color:#fff;
+    margin-left:0;
+  }
+
+  .l-wrapper_01 {
+      margin: 1rem auto;
+      width: 95%;
+      display: flex;
+      position:relative;
+      
+    }
+    
+    .l-wrapper_01:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+      transition: all .5s;
+    }
+    
+    .card_01 {
+      width:100%;
+      background-color: #fff;
+      box-shadow: 0 0 8px rgba(0, 0, 0, .16);
+      color: #212121;
+      text-decoration: none;
+      display:flex;
+      flex-direction: column;
+    }
+    
+    .card__header_01 {
+      margin-top:auto;
+    }
+    
+    .card__title_01 {
+      font-size: 1.6rem;
+      order: 1;
+      margin-bottom: 0.6rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    .card__thumbnail_01 {
+      margin: 0;
+      order: 0;
+      width:100%;
+    }
+  
+    .card__image_01 {
+      width: 100%;
+    }
+
+    .border-line{
+      margin-top:1%;
+      border-top: 1px solid #ddd;
+    }
+    
+    .card__body_01 {
+      padding: 0 1.5rem;
+      margin-top: auto;
+    }
+    
+    .card__text_01 {
+      font-size: .8rem;
+      text-align:center;
+      text-decoration: none;
+        padding-bottom: 0;
+    }
+    
+    .labels{
+      font-size:0.8rem;
+      margin-bottom:0;
+    }
+    .card__text2_01 {
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      margin-left:2%;
+    }
+    
+    .card__text_01 + .card__text_01 {
+      margin-top: .5rem;
+    }
+    
+    .card__footer_01 {
+      display: flex;
+      padding: 1rem;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      /*margin-top: auto;*/
+    }
+    
+    .button_01 {
+      display: inline-block;
+      text-decoration: none;
+      transition: background-color .3s ease-in-out;
+      text-align: center;
+    }
+    
+    .button_01 a {
+      text-decoration: none;
+    }
+    
+    .button_01.-compact {
+      padding: .5rem 1rem;
+      border-radius: .25rem;
+      background-color: #4f96f6;
+      color: #fff;
+      font-weight: bold;
+        text-decoration: none;
+    }
+    
+    .button_01.-compact:hover,
+    .button_01.-compact:focus {
+      background-color: #6bb6ff;
+    }
+
+    /*---------------カードの裏側----------------*/
+    .card_02 {
+      position:absolute;
+      width:100%;
+      height:100%;
+      background-color: #fff;
+      box-shadow: 0 0 8px rgba(0, 0, 0, .16);
+      color: #212121;
+      text-decoration: none;
+      display:flex;
+      flex-direction: column;
+      
+    }
+    .is-surface .card_01{
+      opacity:1;
+      transform:rotateY(0deg);
+      transition:
+          opacity 50ms 200ms,
+          transform 300ms;
+    }
+    .is-surface .card_02 {
+      opacity: 0;
+      transform: rotateY(90deg);
+      transition:
+          opacity 50ms 200ms,
+          transform 300ms;
+    }
+    .is-reverse .card_01 {
+      opacity: 0;
+      transform:rotateY(90deg);
+      transition:
+          opacity 50ms 200ms,
+          transform 300ms;
+    }
+    .is-reverse .card_02 {
+      opacity: 1;
+      transform:rotateY(0deg);
+      transition:
+          opacity 100ms 150ms,
+          transform 300ms 150ms;
+    }
+
+    .comment-view{
+      overflow: scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: none; 
+    }
+    .comment-view::-webkit-scrollbar {
+      display:none;
+    }
+    .comment-area{
+      height:100%;
+      border-radius:3%;
+      border: 1px solid #ddd
+    }
+    .balloon1-left {
+      position: relative;
+      display: inline-block;
+      margin: 1.5em 0 1.5em 15px;
+      padding: 7px 10px;
+      min-width: 120px;
+      max-width: 100%;
+      color: #555;
+      font-size: 16px;
+      background: #e0edff;
+    }
+    
+    .balloon1-left:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -30px;
+      margin-top: -15px;
+      border: 15px solid transparent;
+      border-right: 15px solid #e0edff;
+    }
+    
+    .balloon1-left p {
+      margin: 0;
+      padding: 0;
+    }
+    
+    /*-----------------評価機能--------------*/
+    .card_03{
+      position:absolute;
+      width:100%;
+      height:100%;
+      
+
+    }
+    .is-surface_03 .card_03 {
+      transform:rotateY(90deg);
+    }
+    .is-reverse_03 .card_03 {
+      transform:rotateY(0deg);
+    }
+    .dark_back{
+      position:absolute;
+      width:100%;
+      height:100%;
+      background-color: #000000;
+      opacity: 0.5;
+    }
+    .evaluate_area{
+      
+      height:70%;
+      width:100%;
+      
+      background-color: #fff;
+      
+    }
+    .hyouka{
+      clear: both;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+     }
+     .hyouka input[type='radio']{
+       display: none;
+     }
+     .hyouka input[type='radio']{
+       display: none;
+     }
+     .hyouka label{
+       position: relative;
+       padding: 10px 0px 20px 0px;
+       color: #bbb;
+       cursor: pointer;
+       font-size: 30px;
+     }
+      
+     .hyouka label:hover,
+     .hyouka label:hover ~ label,
+     .hyouka input[type='radio']:checked ~ label{
+       color: #faee2e;
+     }
+     .gender_group{
+      text-align:center;
+      margin:0 auto;
+     }
+     .gender_group input[type="radio"]{
+       display:none;
+     }
+     .gender img{
+      margin: 3px;
+  padding: 8px;
+    }
+    .gender_group input[type="radio"]:checked + .gender img{
+      border:solid 4px #808080;
+      
+    }
